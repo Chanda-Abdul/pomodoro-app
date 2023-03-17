@@ -15,14 +15,15 @@
   <title>Frontend Mentor | Pomodoro app</title>
 </head>
 
-<body>
+<body class="font-roboto">
   <header><img src="/assets/logo.svg"
          alt="logo"></header>
   <div class="container">
     <!-- Toggle time  -->
     <div class="toggle">
       <ul class="body-font-secondary">
-        <li class="btn active">pomodoro</li>
+        <li class="btn"
+            id="active">pomodoro</li>
         <li>short break</li>
         <li>long break</li>
       </ul>
@@ -31,77 +32,87 @@
 
   <!-- Timer -->
   <div class="container time">
-
+    <!-- Progress-->
+    <div id="time-progress-ring"></div>
     <div class="container time-details">
-      <span class="time-progress-ring"></span>
-      <span class="current-time">
-        <h1>17:59</h1>
-      </span>
-      <span class="current-status">
-        <h3>pause</h3><!-- start restart  -->
-      </span>
+
+      <!-- Timer -->
+      <h1><span id="current-time"></span></h1>
+      <!-- Status -->
+      <button class="btn btn-status">
+        <h3><span class="current-status">
+          </span></h3>
+      </button>
     </div>
-
-
   </div>
 
 
 
-  <button class="btn btn-settings"><img src="/assets/icon-settings.svg"
+  <button class="btn btn-settings show" onclick="openSettingsModal()"><img src="/assets/icon-settings.svg"
          alt="settings"></button>
   <!-- Settings Card -->
   <div id="modal"
        class="hide">
-    <div class="card container">
-      <div class="card-title">
-        <h2>Settings</h2>
-        <button class="btn close-btn"><img src="/assets/icon-close.svg"
-               alt="icon-close"
-               class="icon"></button>
+    <div class="modal-container">
+      <div class="card container">
+        <div class="card-title">
+          <h2>Settings</h2>
+          <button class="btn close-btn" onclick="closeSettingsModal()"><img src="/assets/icon-close.svg"
+                 alt="icon-close"
+                 class="icon"></button>
+        </div>
+        <hr class="full">
+        <div class="card-content">
+          <section class="time-select">
+            <form action="">
+              <h4 class="section-title">Time (minutes)</h4>
+              <label for="pomodoro">
+                <p class="body-font-primary ">pomodoro</p> <select name="pomodoro"
+                        id="">25</select>
+              </label>
+              <label for="short-break">
+                <p class="body-font-primary">short break</p><select name="short-break"
+                        id="">25</select>
+              </label>
+              <label for="long-break">
+                <p class="body-font-primary">long break</p><select name="lon-break"
+                        id="">25</select>
+              </label>
+            </form>
+          </section>
+          <hr>
+          <!-- Select Font -->
+          <section class="font-select">
+            <h4 class="section-title"> Font</h4>
+            <div class="font-options">
+              <button class="btn-option font-kumbh"
+                      onclick="updateFont('kumbh')">Aa</button>
+              <button class="btn-option font-roboto"
+                      onclick="updateFont('roboto')">Aa</button>
+              <button class="btn-option font-space"
+                      onclick="updateFont('space')">Aa</button>
+            </div>
+          </section>
+          <hr>
+          <!-- Select Accent Color -->
+          <section class="color-select">
+            <h4 class="section-title">Color</h4>
+            <div class="color-options">
+              <button class="btn-option peach active"><img src=""
+                     alt="">✔️</button>
+              <button class="btn-option blue">&nbsp;</button>
+              <button class="btn-option orchid">&nbsp;</button>
+            </div>
+          </section>
+        </div>
       </div>
-      <hr class="full">
-      <div class="card-content">
-        <section class="time-select">
-          <form action="">
-            <h4 class="section-title">Time (minutes)</h4>
-            <label for="pomodoro">
-              <p class="body-font-primary ">pomodoro</p> <select name="pomodoro"
-                      id="">25</select>
-            </label>
-            <label for="short-break">
-              <p class="body-font-primary">short break</p><select name="short-break"
-                      id="">25</select>
-            </label>
-            <label for="long-break">
-              <p class="body-font-primary">long break</p><select name="lon-break"
-                      id="">25</select>
-            </label>
-          </form>
-        </section>
-        <hr>
-        <section class="font-select">
-          <h4 class="section-title"> Font</h4>
-          <div class="font-options">
-            <button class="btn-option font-kumbh active">Aa</button>
-            <button class="btn-option font-roboto">Aa</button>
-            <button class="btn-option font-space">Aa</button>
-          </div>
-        </section>
-        <hr>
-        <section class="color-select">
-          <h4 class="section-title">Color</h4>
-          <div class="color-options">
-            <button class="btn-option peach"><img src=""
-                   alt="">✔️</button>
-            <button class="btn-option blue">&nbsp;</button>
-            <button class="btn-option orchid">&nbsp;</button>
-          </div>
-        </section>
-      </div>
-    </div><button class="btn btn-apply">Apply</button>
+      <button class="btn btn-apply" onclick="applySettings()">Apply</button>
+    </div>
   </div>
 </body>
-<script src="/script.js"
-        defer></script>
+<script defer
+        src="/timers.js"></script>
+<script defer
+        src="/settings.js"></script>
 
 </html>

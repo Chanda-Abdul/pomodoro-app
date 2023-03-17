@@ -1,11 +1,5 @@
 @import url(https://fonts.bunny.net/css?family=kumbh-sans:400,700|roboto-slab:400,700|space-mono:400,700);
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 :root {
   --georgia-peach: hsl(0, 91%, 71%);
   --robins-egg-blue: hsl(182, 91%, 71%);
@@ -21,11 +15,22 @@
   --diamonds-in-the-sky: #e3e1e1;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
 body {
   height: 100vh;
+  width: 100%;
+}
+
+
+body {
   font-size: 16px;
   font-weight: 700;
-  font-family: 'Kumbh Sans', sans-serif;
   color: var(--transparent-blue);
   background-color: var(--black-market);
   display: flex;
@@ -33,13 +38,23 @@ body {
   align-items: center;
   justify-content: space-evenly;
 }
-
 .container,
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.font-kumbh {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+.font-roboto {
+  font-family: 'Roboto Slab', serif;
+}
+.font-space {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
 }
 
 h1 {
@@ -77,30 +92,6 @@ h4 {
   line-height: 0.875rem;
 }
 
-button,
-.btn {
-  background-color: var(--georgia-peach);
-  color: var(--baby-powder);
-  font-size: 1rem;
-  line-height: 20px;
-  font-weight: 700;
-  text-align: center;
-  padding: 18px 23px;
-  border-radius: 26.5px;
-  border: none;
-}
-
-button:hover,
-.btn:hover {
-  cursor: pointer;
-  opacity: 0.2;
-}
-
-.btn-settings {
-  background-color: transparent;
-  border: none;
-}
-
 .toggle ul {
   display: flex;
   flex-direction: row;
@@ -120,6 +111,8 @@ button:hover,
 .toggle ul li.active {
   color: var(--black-market);
 }
+
+
 .time {
   height: 300px;
   width: 300px;
@@ -134,18 +127,30 @@ button:hover,
     50px 50px 100px var(--shadow-dancer);
 }
 
-.time-progress-ring {
+#time-progress-ring {
+  background: radial-gradient(var(--dark-knight) 50%, transparent 51%),
+  conic-gradient(transparent 0deg 220deg, var(--baby-powder) 220deg 360deg),
+  conic-gradient(var(--georgia-peach) 0deg, var(--georgia-peach) 90deg, var(--georgia-peach) 180deg, var(--georgia-peach));
+border-radius: 50%;
+/* width: 120px; */
+/* height: 120px; */
+/* // For animations...
+// transition: all 500ms ease-in;
+// will-change: transform; */
   position: absolute;
-  border: 0.5rem solid var(--georgia-peach);
-  border-radius: 10rem;
+  /* border: 0.5rem solid var(--georgia-peach); */
+  /* border-radius: 10rem; */
+  z-index: 0;
   height: 248px;
   width: 248px;
 }
 .time-details {
+  position: absolute;
+  z-index: 1;
   padding: 40px;
-  height: 268px;
-  width: 268px;
-  border-radius: 10rem;
+  height: 228px;
+  width: 228px;
+  border-radius: 50%;
   background-color: var(--dark-knight);
 }
 
@@ -153,16 +158,57 @@ button:hover,
   font-size: 5rem;
   line-height: 6.5rem;
   margin: 5px 1rem;
-  /* height: 99px;
-width: 170px; */
+}
+
+/* Modal  */
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* TO-DO => animate background color to fade in/out */
+  animation-name: animatemodal;
+  animation-duration: 2500ms;
+  /* animation: background-color 2000ms ease-in-out; */
+}
+.card {
+  /* TO-DO => animate just the card to drop in/out from top */
+}
+/* Modal  Animation Section */
+
+@keyframes animatemodal {
+  from {
+    top: -500px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 /* Settings Card */
 
 .card {
-  position: absolute;
-  top: 46px;
-  left: 24px;
+  /* position: absolute; */
+  margin-top: 46px;
+  /* left: 24px; */
   min-height: 549px;
   width: 327px;
   background-color: var(--baby-powder);
@@ -196,14 +242,6 @@ label {
   line-height: 25px;
 }
 
-.close-btn {
-  height: 12.727922439575195px;
-  width: 12.727922439575195px;
-  background-color: transparent;
-  align-items: center;
-  padding: 0;
-}
-
 hr {
   border: 1px solid var(--diamonds-in-the-sky);
   width: 100%;
@@ -235,6 +273,43 @@ form {
   justify-content: center;
   align-items: center;
 }
+
+/* Buttons */
+
+button,
+.btn {
+  background-color: var(--georgia-peach);
+  color: var(--baby-powder);
+  font-size: 1rem;
+  line-height: 20px;
+  font-weight: 700;
+  text-align: center;
+  padding: 18px 23px;
+  border-radius: 26.5px;
+  border: none;
+}
+
+button.btn-option:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.btn-settings,
+.btn-status {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.close-btn {
+  height: 12.727922439575195px;
+  width: 12.727922439575195px;
+  background-color: transparent;
+  align-items: center;
+  padding: 0;
+}
+
 button.btn-option {
   height: 56px;
   width: 56px;
@@ -266,27 +341,11 @@ button.btn-option {
   background-color: var(--electric-orchid);
 }
 
-.font-kumbh {
-  font-family: 'Kumbh Sans', sans-serif;
-}
-.font-roboto {
-  font-family: 'Roboto Slab', serif;
-}
-.font-space {
-  font-family: 'Space Mono', monospace;
-}
 .btn-apply {
   position: relative;
   z-index: 1;
   height: 53px;
   width: 140px;
   border-radius: 26.5px;
-  top: -75px;
-}
-.show {
-  display: block;
-}
-
-.hide {
-  display: none;
+  top: calc(-53px / 2);
 }

@@ -1,6 +1,6 @@
 # Frontend Mentor - Pomodoro app
 
-![Design preview for the Pomodoro app coding challenge](./preview.jpg)
+![Design preview for the Pomodoro app coding challenge](./assets/preview.jpg)
 
 This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/pomodoro-app-KBFnycJ6G). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
@@ -43,7 +43,7 @@ Your users should be able to:
 ### Links
 
 - Solution URL: [here](https://github.com/Chanda-Abdul/pomodoro-app)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [here](https://cozy-gelato-f57a29.netlify.app/)
 
 ## My process
 
@@ -61,8 +61,9 @@ Your users should be able to:
 ### Useful resources
 
 - [JavaScript DOM Manipulation, Project 4](https://youtu.be/5fb2aPlgoys?t=7252) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
+- [JavaScript DOM Manipulation, Project 2](https://youtu.be/5fb2aPlgoys?t=7252) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) - The `setInterval()` method repeatedly calls a function or executes a code snippet, with a fixed time delay between each call.
+- [clearInterval()](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval) - The global `clearInterval()` method cancels a timed, repeating action which was previously established by a call to `setInterval()`.
 
 ## Author
 
