@@ -1,3 +1,5 @@
 .header{
     margin: 3rem 2rem;
+    @include flex(column, space-evenly, center);
+
 }

@@ -16,30 +16,27 @@
   <title>Frontend Mentor | Pomodoro app</title>
 </head>
 
-
-
-
-<header class="header"><img src="/assets/logo.svg"
-       class="header__logo"
-       alt="logo"></header>
-
 <body>
-  <!-- TO-DO => update with BEM class names -->
-  <div class="container font-roboto"
-       id="pomodoro">
-    <div class="info">
-      <h1 class="primary-heading">
-        Beat procrastination and improve your focus one pomodoro at a time
-      </h1>
-      <i class="ph ph-info"
-         id="info-icon"></i>
-    </div>
-    <!-- TO-DO (Bonus)=> add info icon hover functionality -->
-    <!-- Info popup  -->
-    <!-- <div class="info-details"
-           id="info-details">
-        <div class="info-content"
-             id="info-content">
+  <header class="header"><img src="/assets/logo.svg"
+         class="header__logo"
+         alt="logo"></header>
+  <main>
+   
+    <div class="container__pomodoro body__font-roboto"
+         id="pomodoro">
+      <div class="info">
+        <h1 class="info__primary-heading">
+          Beat procrastination and improve your focus one pomodoro at a time
+        </h1>
+        <i class="ph ph-info"
+           id="info__icon"></i>
+      </div>
+      <!-- TO-DO (Bonus)=> add info icon hover functionality -->
+      <!-- Info popup  -->
+      <!-- <div class="info__details"
+           id="info__details">
+        <div class="info__content"
+             id="info__content">
           <p>pomodoros are focused work sessions — with frequent short breaks to promote sustained concentration and
             stave off mental fatigue.</p>
           <hr>
@@ -56,194 +53,186 @@
         </div>
       </div> -->
 
-    <!-- Toggle time  -->
-    <div class="toggle">
-      <!-- TO-DO  => add toggle functionality -->
-      <ul class="body-font-secondary">
-        <li class="btn"
-            id="active-toggle">pomodoro</li>
-        <li>short break</li>
-        <li>long break</li>
-      </ul>
-    </div>
-
-
-    <!-- Timer -->
-    <div class="timer">
-      <!-- Progress-->
-      <div id="timer__progress-ring"
-           class="timer__progress-ring peach"></div>
-      <!-- TO-DO => add progress ring functionality -->
-      <div class="timer__details">
-
-        <!-- Timer -->
-        <h1><span class="timer__current-time"
-                id="timer__current-time"></span></h1>
-        <!-- Status -->
-        <button class="btn btn-status"
-                onclick="updateStatus()">
-          <h3><span class="timer__current-status"
-                  id="timer__current-status">
-            </span></h3>
-        </button>
+      <!-- Toggle time  -->
+      <div class="toggle">
+        <!-- TO-DO  => add toggle functionality -->
+        <ul class="body__font-secondary">
+          <li class="btn btn-toggle"
+              id="active-toggle">pomodoro</li>
+          <li>short break</li>
+          <li>long break</li>
+        </ul>
       </div>
+
+
+      <!-- Timer -->
+      <div class="timer">
+        <!-- Progress-->
+        <div id="timer__progress-ring"
+             class="timer__progress-ring peach"></div>
+        <!-- TO-DO => add progress ring functionality -->
+        <div class="timer__details">
+
+          <!-- Timer -->
+          <h1><span class="timer__current-time"
+                  id="timer__current-time"></span></h1>
+          <!-- Status -->
+          <button class="btn btn-status"
+                  onclick="updateStatus()">
+            <h3><span class="timer__current-status"
+                    id="timer__current-status">
+              </span></h3>
+          </button>
+        </div>
+      </div>
+
+
+
+      <a href="#settings__modal"
+         class="btn btn-settings"><img src="/assets/icon-settings.svg"
+             alt="settings"></a>
     </div>
 
+    <!-- Settings Popup-->
+    <div id="settings__modal"
+         class="settings__modal">
+      <div class="settings__container">
+        <div class="settings__card">
+          <div class="settings__card--title">
+            <h2>Settings</h2>
+            <a href="#pomodoro"
+               class="btn btn-close"><img src="/assets/icon-close.svg"
+                   alt="icon-close"
+                   class="icon"></a>
+
+          </div>
+          <hr class="full">
+          <div class="settings__card--content">
+            <section class="settings__card--instructions">
+              <p class="body__font-primary">pomodoros are focused work sessions — with frequent short breaks to promote
+                sustained concentration and
+                stave off mental fatigue.</p>
 
 
-    <a href="#settings-modal"
-       class="btn btn-settings settings-btn"><img src="/assets/icon-settings.svg"
-           alt="settings"></a>
-  </div>
-  <!--  onclick="openSettingsModal()"-->
-  <!-- Settings Popup-->
-  <div id="settings-modal"
-       class="settings-modal">
-    <div class="modal-container">
-      <div class="card container">
-        <div class="card-title">
-          <h2>Settings</h2>
-          <a href="#pomodoro"
-             class="btn close-btn"><img src="/assets/icon-close.svg"
-                 alt="icon-close"
-                 class="icon"></a>
-          <!--  onclick="closeSettingsModal()"-->
+              <ul class="desktop-only">
+                <li>Each session is 25 minutes</li>
+                <li>Work on your task until time is up</li>
+                <li>Take a short break</li>
+                <li>Every 4 sessions take a longer break</li>
+              </ul>
+            </section>
+            <hr>
+            <form action=""
+                  class="settings__form">
+              <section class="settings__section">
 
-        </div>
-        <hr class="full">
-        <div class="card-content">
-          <section class="section__instructions">
-            <p>pomodoros are focused work sessions — with frequent short breaks to promote sustained concentration and
-              stave off mental fatigue.</p>
+                <h4 class="settings__section--title">Time (minutes)</h4>
 
+                <label for="pomodoro"
+                       class="settings__section--label-time">
 
-            <ul class="desktop-only">
-              <li>Each session is 25 minutes</li>
-              <li>Work on your task until time is up</li>
-              <li>Take a short break</li>
-              <li>Every 4 sessions take a longer break</li>
-            </ul>
-          </section>
-          <hr>
-          <section class="section__time-select">
+                  <p class="body__font-secondary">pomodoro</p>
+                  <select name="pomodoro"
+                          id="pomodoro"
+                          class="settings__section--select-time">
+                    <option value="1">1 session</option>
+                    <option value="2">2 sessions</option>
+                    <option value="3">3 sessions</option>
+                    <option value="4">4 sessions</option>
+                    <option value="5">5 sessions</option>
+                    <option value="6">6 sessions</option>
+                    <option value="7">7 sessions</option>
+                    <option value="8">8 sessions</option>
+                  </select>
+                </label>
+                <label for="short-break"
+                       class="settings__section--label-time">
+                  <p class="body__font-secondary">short break</p>
+                  <select name="short-break"
+                          id="short-break"
+                          class="settings__section--select-time">
+                    <option value="5">5 minutes</option>
+                    <option value="10">10 minutes</option>
+                    <option value="15">15 minutes</option>
+                    <option value="20">20 minutes</option>
+                  </select>
+                </label>
+                <label for="long-break"
+                       class="settings__section--label-time">
+                  <p class="body__font-secondary">long break</p>
 
-            <h4 class="section__time-title">Time (minutes)</h4>
-            <form action=""><label for="pomodoro">
-
-                <p class="body-font-primary ">pomodoro</p>
-                <select name="pomodoro"
-                        id="pomodoro">
-                  <option value="1">1 session
-
-                  </option>
-                  <option value="2">2 sessions
-                    <!-- -- 25 minutes each + short break -->
-                  </option>
-                  <option value="3">3 sessions
-                    <!-- -- 25 minutes each + 2 short breaks -->
-                  </option>
-                  <option value="4">4 sessions
-                    <!-- -- 25 minutes each + 3 short breaks -->
-                  </option>
-                  <option value="5">5 sessions
-
-                    <!-- -- 25 minutes each + 3 short breaks + 1 long break -->
-                  </option>
-                  <option value="6">6 sessions
-                  </option>
-                  <option value="7">7 sessions
-                  </option>
-                  <option value="8">8 sessions
-                  </option>
-
-
-                </select>
-              </label>
-              <label for="short-break">
-                <p class="body-font-primary">short break</p>
-                <select name="short-break"
-                        id="short-break">
-                  <option value="5">5 minutes</option>
-                  <option value="10">10 minutes</option>
-                  <option value="15">15 minutes</option>
-                  <option value="20">20 minutes</option>
-
-                </select>
-              </label>
-              <label for="long-break">
-                <p class="body-font-primary">long break</p>
-
-                <select name="long-break"
-                        id="long-break">
-                  <option value="30">30 minutes</option>
-                  <option value="45">45 minutes</option>
-                  <option value="60">60 minutes</option>
-
-                </select>
-              </label>
+                  <select name="long-break"
+                          id="long-break"
+                          class="settings__section--select-time">
+                    <option value="30">30 minutes</option>
+                    <option value="45">45 minutes</option>
+                    <option value="60">60 minutes</option>
+                  </select>
+                </label>
 
             </form>
-          </section>
-          <hr>
-          <!-- TO-DO => Add Dark and light mode -->
-          <section class="section__scheme desktop-only">
-            <h4 class="section-title">Theme (Light or Dark)</h4>
-            <button class="btn-option light"> <i class="ph ph-sun"></i></button>
-            <button class="btn-option dark"> <i class="ph ph-star-and-crescent"></i></button>
+            </section>
+            <hr>
+            <!-- TO-DO => Add Dark and light mode -->
+            <section class="settings__section--scheme desktop-only">
+              <h4 class="settings__section--title">Theme (Light or Dark)</h4>
+              <div class="settings__section--options-font">
+                <button class="btn-option light"> <i class="ph ph-sun"></i></button>
+                <button class="btn-option dark"> <i class="ph ph-star-and-crescent"></i></button>
+              </div>
+            </section>
+            <hr>
 
+            <!-- Select Font -->
+            <section class="settings__section">
+              <h4 class="settings__section--title">Font</h4>
+              <div class="settings__section--options-font">
+                <button class="btn-option font-kumbh"
+                        onclick="updateFont('kumbh')">Aa</button>
+                <button class="btn-option font-roboto"
+                        onclick="updateFont('roboto')">Aa</button>
+                <button class="btn-option font-space"
+                        onclick="updateFont('space')">Aa</button>
+              </div>
+            </section>
+            <hr>
 
-          </section>
-          <hr>
-
-          <!-- Select Font -->
-          <section class="font-select">
-            <h4 class="section-title"> Font</h4>
-            <div class="font-options">
-              <button class="btn-option font-kumbh"
-                      onclick="updateFont('kumbh')">Aa</button>
-              <button class="btn-option font-roboto"
-                      onclick="updateFont('roboto')">Aa</button>
-              <button class="btn-option font-space"
-                      onclick="updateFont('space')">Aa</button>
-            </div>
-          </section>
-          <hr>
-          <!-- Select Accent Color -->
-          <section class="color-select">
-            <h4 class="section-title">Color</h4>
-            <div class="color-options">
-              <button class="btn-option peach active"
-                      onclick="updateAccentColor('peach')"><img src=""
-                     alt="">&nbsp;</button>
-              <button class="btn-option blue"
-                      onclick="updateAccentColor('blue')">&nbsp;</button>
-              <button class="btn-option orchid"
-                      onclick="updateAccentColor('orchid')">&nbsp;</button>
-            </div>
-          </section>
+            <!-- Select Accent Color -->
+            <section class="settings__section">
+              <h4 class="settings__section--title">Color</h4>
+              <div class="settings__section--options-color">
+                <button class="btn-option peach active"
+                        onclick="updateAccentColor('peach')">
+                        <img src=""
+                       alt="">&nbsp;</button>
+                <button class="btn-option blue"
+                        onclick="updateAccentColor('blue')">&nbsp;</button>
+                <button class="btn-option orchid"
+                        onclick="updateAccentColor('orchid')">&nbsp;</button>
+              </div>
+            </section>
+          </div>
+          <a href="#pomodoro"
+             class="btn btn-apply"
+             onclick="applySettings()">Apply</a>
         </div>
-        <a href="#pomodoro"
-           class="btn btn-apply"
-           onclick="applySettings()">Apply</a>
-
-
       </div>
     </div>
-  </div>
-
-
+  </main>
+  <footer class="footer">
+    <div class="footer__attribution">
+      Challenge by
+      <a href='https://www.frontendmentor.io/'
+         target='_blank'
+         rel='noreferrer'>
+        Frontend Mentor
+      </a>
+      . Coded by <a href='https://www.ChandaCodes.com'> Chanda Abdul</a>.
+    </div>
+  </footer>
 </body>
-<footer class="footer">
-  <div class="attribution">
-    Challenge by
-    <a href='https://www.frontendmentor.io/'
-       target='_blank'
-       rel='noreferrer'>
-      Frontend Mentor
-    </a>
-    . Coded by <a href='https://www.ChandaCodes.com'> Chanda Abdul</a>.
-  </div>
-</footer>
+
+
 <script defer
         src="scripts/timers.js"></script>
 <script defer

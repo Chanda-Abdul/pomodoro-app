@@ -1,86 +1,93 @@
-.container{
+.container__pomodoro {
     // height: 100vh;
     @include flex(column, space-evenly, center);
 }
 
 .info {
     display: block;
+
     // width: 100%;
     // position: relative;
-}
-
-#info-icon {
-
-    display: inline-block;
-
-    :hover {}
-
-}
-
-#info-details {
-    // @include flex(column, center, center);
-    height: 0;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba($black-market, .9);
-
-    // z-index: 20;
-    opacity: 0;
-    visibility: hidden;
-    transition: all .3s;
-    // transform:  scale(.25);
-    z-index: 2;
-
-    &:target {
-        height: 100vh;
-        width: 100%;
-        opacity: 1;
-        // transform:  scale(1);
-        visibility: visible;
+    &__primary-heading {
+        // font-size: 1rem;
+        font-size: 1.75rem;
+        //   line-height: 7.5rem;
+        //   letter-spacing: -0.313rem;
     }
 
-}
+    &__icon {
 
-.info-content {
-    @include flex(column, center, center);
-    // position: relative;
-    // top: 0;
-    height: 0;
-    width: 0;
+        display: inline-block;
 
-    background-color: $diamonds-in-the-sky;
-    color: $shadow-dancer;
-    padding: 3rem 2rem 3rem 3rem;
-    opacity: 0;
-    visibility: hidden;
-    // transform: translate(-50%, -50%) scale(.25);
-    transition: all .4s .2s; // background .2s delay => then popup
-
-
-    &:target {
-        opacity: 1;
-        width: 32.7rem;
-        height: 100%;
-        // transform: translate(-50%, -50%) scale(1);
+        :hover {}
 
     }
 
-    p {
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
+    &__details {
+        // @include flex(column, center, center);
+        height: 0;
+        width: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba($black-market, .9);
+
+        // z-index: 20;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .3s;
+        // transform:  scale(.25);
+        z-index: 2;
+
+        &:target {
+            height: 100vh;
+            width: 100%;
+            opacity: 1;
+            // transform:  scale(1);
+            visibility: visible;
+        }
+
     }
 
-    hr {
-        border: 1px solid $georgia-peach;
-        margin: 2rem auto;
-    }
+    &__content {
+        @include flex(column, center, center);
+        // position: relative;
+        // top: 0;
+        height: 0;
+        width: 0;
 
-    ul li {
+        background-color: $diamonds-in-the-sky;
         color: $shadow-dancer;
-        margin-left: .75rem;
-        margin-bottom: .75rem;
-        font-size: 1.25rem;
+        padding: 3rem 2rem 3rem 3rem;
+        opacity: 0;
+        visibility: hidden;
+        // transform: translate(-50%, -50%) scale(.25);
+        transition: all .4s .2s; // background .2s delay => then popup
+
+
+        &:target {
+            opacity: 1;
+            width: 32.7rem;
+            height: 100%;
+            // transform: translate(-50%, -50%) scale(1);
+
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        hr {
+            border: 1px solid $georgia-peach;
+            margin: 2rem auto;
+        }
+
+        ul li {
+            color: $shadow-dancer;
+            margin-left: .75rem;
+            margin-bottom: .75rem;
+            font-size: 1.25rem;
+        }
     }
 }

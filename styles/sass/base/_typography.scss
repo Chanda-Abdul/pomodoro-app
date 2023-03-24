@@ -9,12 +9,6 @@ body {
   // @include flex(column, space-evenly, center);
 
 }
-.primary-heading, h1{
-  // font-size: 1rem;
-font-size: 1.75rem;
-//   line-height: 7.5rem;
-//   letter-spacing: -0.313rem;
-}
 
 
 h2 {
@@ -37,25 +31,32 @@ h4 {
 }
 
 
-.font-kumbh {
-  font-family: 'Kumbh Sans', sans-serif;
-}
-.font-roboto {
-  font-family: 'Roboto Slab', serif;
-}
-.font-space {
-  font-family: 'Space Mono', monospace;
-  // font-size: 2rem;
-}
+.body {
+  &__heading-primary {}
 
-.body-font-primary {
-  font-size: 1rem;
-  line-height: 2rem;
+  &__heading-secondary {}
+
+  &__font-primary {
+    font-size: 1rem;
+    line-height: 2rem;
+  }
+
+  &__font-secondary {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
+  &__font-kumbh {
+    font-family: 'Kumbh Sans', sans-serif;
+  }
+
+  &__font-roboto {
+    font-family: 'Roboto Slab', serif;
+  }
+
+  &__font-space {
+    font-family: 'Space Mono', monospace;
+    // font-size: 2rem;
+  }
+
 }
-
-.body-font-secondary {
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-}
-
-

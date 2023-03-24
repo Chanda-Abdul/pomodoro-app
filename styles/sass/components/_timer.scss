@@ -15,7 +15,7 @@
   box-shadow: -5rem -5rem 16rem $quill-tip,
     5rem 5rem 16rem $shadow-dancer;
 
-  &__progress-ring{
+  &__progress-ring {
 
     background: radial-gradient($dark-knight 50%, transparent 51%),
       conic-gradient(transparent 0deg 220deg, $baby-powder 220deg 360deg),
@@ -33,22 +33,21 @@
     height: 248px;
     width: 248px;
   }
+
   &__details {
-  position: absolute;
-  z-index: 1;
-  @include flex(column, center, center);
-  padding: 4rem;
-  height: 228px;
-  width: 228px;
-  border-radius: 50%;
-  background-color: $dark-knight;
-}
-&__current-time {
-  font-size: 5rem;
-  line-height: 6.5rem;
-  margin: 5px 1.6rem;
-}
-}
+    position: absolute;
+    z-index: 1;
+    @include flex(column, center, center);
+    padding: 4rem;
+    height: 228px;
+    width: 228px;
+    border-radius: 50%;
+    background-color: $dark-knight;
+  }
 
-
-
+  &__current-time {
+    font-size: 5rem;
+    line-height: 6.5rem;
+    margin: 5px 1.6rem;
+  }
+}

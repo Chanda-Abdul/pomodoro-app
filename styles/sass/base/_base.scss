@@ -8,9 +8,10 @@
 }
 
 
-html, body {
-    min-height: 100vh;
-    width: 100%;
+html,
+body {
+    height: 100vh;
+    width: 100vw;
 }
 
 html {
@@ -20,13 +21,19 @@ html {
 }
 
 
-header {
-    @include flex(column, space-evenly, center);
-
-}
 
 body {
     box-sizing: border-box;
+}
+
+hr {
+    border: 1px solid $diamonds-in-the-sky;
+    width: 100%;
+}
+
+
+hr.full {
+    width: 327px;
 }
 
 .mobile-only {
