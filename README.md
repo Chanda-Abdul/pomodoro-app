@@ -13,7 +13,10 @@ Your challenge is to build out this Pomodoro timer app and get it looking as clo
 You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
 
 Your users should be able to:
+<!-- TO-DO => review mobile styles -->
 
+<!-- TO-DO => review tablet styles -->
+<!-- TO-DO => review desktop styles -->
 - [ ] Set a pomodoro timer and short & long break timers
 - [ ] Customize how long each timer runs for
 - [ ] See a circular progress bar that updates every minute and represents how far through their timer they are
@@ -49,7 +52,7 @@ Your users should be able to:
 
 ### Built with
 
- <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS icon" height="30" />  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript icon" height="30" /> <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML icon" height="30" /> <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="Netlify icon" height="30" /> <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma icon" height="30" />
+  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="JavaScript icon" height="30" /><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS icon" height="30" />  <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="Sass icon" height="30" /><img src="https://camo.githubusercontent.com/56a25d7a80ecd7be0919314d76dcae961ea7aac32dac11a7aa81644afa6daa53/68747470733a2f2f696d672e736869656c64732e696f2f7374617469632f76313f7374796c653d666f722d7468652d6261646765266d6573736167653d42454d26636f6c6f723d303030303030266c6f676f3d42454d266c6f676f436f6c6f723d464646464646266c6162656c3d" alt="BEM icon" height="30" /><img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML icon" height="30" /> <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="Netlify icon" height="30" /> <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="Figma icon" height="30" />
 
 
 ### What I learned
@@ -64,6 +67,10 @@ Your users should be able to:
 - [JavaScript DOM Manipulation, Project 2](https://youtu.be/5fb2aPlgoys?t=7252) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) - The `setInterval()` method repeatedly calls a function or executes a code snippet, with a fixed time delay between each call.
 - [clearInterval()](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval) - The global `clearInterval()` method cancels a timed, repeating action which was previously established by a call to `setInterval()`.
+- [setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) - The global `setTimeout()` method sets a timer which executes a function or specified piece of code once the timer expires.
+
+- [The Pomodoro Technique](https://todoist.com/productivity-methods/pomodoro-technique) - What is the Pomodoro Technique and how to use it
+- [Project 1, Advanced CSS and Sass Udemy Course by Jonas Schmedtmann](https://www.udemy.com/course/advanced-css-and-sass) 
 
 ## Author
 

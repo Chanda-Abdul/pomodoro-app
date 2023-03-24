@@ -1,0 +1,15 @@
+{
+  "name": "pomodoro-timer",
+  "version": "1.0.0",
+  "description": "Pomodoro Timer",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run compile:sass ",
+    "compile:sass": "node-sass styles/sass/main.scss styles/styles.css -w"
+  },
+  "author": "Chanda Abdul",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^8.0.0"
+  }
+}

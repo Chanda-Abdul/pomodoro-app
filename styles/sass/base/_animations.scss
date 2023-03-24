@@ -1,0 +1,63 @@
+  /* Modal  Animation Section */
+  
+  @keyframes animatemodal {
+    from {
+      top: -50rem;
+      opacity: 0;
+    }
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+.card {
+    /* TO-DO => animate just the card to drop in/out from top */
+  }
+  
+  @keyframes moveInLeft {
+
+    /* initial state */
+    0% {
+        opacity: 0;
+        transform: translateX(-16rem);
+    }
+
+    80% {
+        transform: translateX(1.6rem);
+    }
+
+    /* final state */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(16rem);
+    }
+
+    80% {
+        transform: translateX(-1.6rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}

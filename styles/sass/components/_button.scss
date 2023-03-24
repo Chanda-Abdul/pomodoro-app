@@ -1,0 +1,65 @@
+ /* Buttons */
+
+ button,
+ .btn {
+        background-color: $georgia-peach;
+     color: $baby-powder;
+     font-size: 1.6rem;
+     line-height: 2rem;
+     font-weight: 700;
+     text-align: center;
+     padding: 18px 23px;
+     border-radius: 26.5px;
+     border: none;
+ }
+
+ button.btn-option:hover {
+     cursor: pointer;
+     opacity: 0.8;
+ }
+
+ .btn-settings,
+ .btn-status {
+     margin: 0;
+     padding: 0;
+     background-color: transparent;
+     border: none;
+ }
+
+ .close-btn {
+     height: 2rem;
+     width: 2rem;
+     background-color: transparent;
+     align-items: center;
+     padding: 0;
+ }
+
+ button.btn-option {
+     height: 5.6rem;
+     width: 5.6rem;
+     text-align: center;
+     padding: .8rem;
+     margin: 0 1.6rem;
+     border-radius: 16rem;
+ }
+
+ .font-options button.btn-option {
+     background-color: $transparent-blue;
+     color: $black-market;
+     opacity: 0.73;
+ }
+
+ .font-options button.btn-option.active {
+     background-color: $dark-knight;
+     color: $baby-powder;
+     opacity: 1;
+ }
+
+ .btn-apply {
+     position: relative;
+     z-index: 1;
+     height: 5.3rem;
+     width: 14rem;
+     border-radius: 26.5px;
+     top: calc(-5.3rem / 2);
+ }

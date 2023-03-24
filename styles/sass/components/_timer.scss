@@ -1,0 +1,54 @@
+.timer {
+  @include flex(column, center, center);
+  // TO-DO=> update to clip-path: circle();
+  // -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  // clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  // border-top-left-radius: 3px;
+  // border-top-right-radius: 3px;
+  height: 30rem;
+  width: 30rem;
+  padding: 1.6rem;
+  border-radius: 50%;
+  background: linear-gradient(315deg,
+      $quill-tip 0%,
+      $liberty-blue 100%);
+  box-shadow: -5rem -5rem 16rem $quill-tip,
+    5rem 5rem 16rem $shadow-dancer;
+
+  &__progress-ring{
+
+    background: radial-gradient($dark-knight 50%, transparent 51%),
+      conic-gradient(transparent 0deg 220deg, $baby-powder 220deg 360deg),
+      conic-gradient($georgia-peach 0deg, $georgia-peach 90deg, $georgia-peach 180deg, $georgia-peach);
+    border-radius: 50%;
+    /* width: 12rem; */
+    /* height: 12rem; */
+    /* // For animations...
+// transition: all 500ms ease-in;
+// will-change: transform; */
+    position: absolute;
+    /* border: .8rem solid $georgia-peach; */
+    /* border-radius: 16rem; */
+    z-index: 0;
+    height: 248px;
+    width: 248px;
+  }
+  &__details {
+  position: absolute;
+  z-index: 1;
+  @include flex(column, center, center);
+  padding: 4rem;
+  height: 228px;
+  width: 228px;
+  border-radius: 50%;
+  background-color: $dark-knight;
+}
+&__current-time {
+  font-size: 5rem;
+  line-height: 6.5rem;
+  margin: 5px 1.6rem;
+}
+}
+
+
+

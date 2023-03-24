@@ -1,0 +1,61 @@
+@import url(https://fonts.bunny.net/css?family=kumbh-sans:400,700|roboto-slab:400,700|space-mono:400,700);
+
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: $font-size-default;
+  font-weight: 700;
+  color: $transparent-blue;
+  background-color: $black-market;
+  // @include flex(column, space-evenly, center);
+
+}
+.primary-heading, h1{
+  // font-size: 1rem;
+font-size: 1.75rem;
+//   line-height: 7.5rem;
+//   letter-spacing: -0.313rem;
+}
+
+
+h2 {
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  letter-spacing: 0.9rem;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.313rem;
+  text-transform: uppercase;
+}
+
+
+.font-kumbh {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+.font-roboto {
+  font-family: 'Roboto Slab', serif;
+}
+.font-space {
+  font-family: 'Space Mono', monospace;
+  // font-size: 2rem;
+}
+
+.body-font-primary {
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.body-font-secondary {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+
+

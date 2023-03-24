@@ -1,0 +1,16 @@
+.toggle ul {
+  @include flex(row, space-around, center);
+    list-style: none;
+    height: 63px;
+    width: 327px;
+    left: 24px;
+    top: 101px;
+    border-radius: 31.5px;
+    background-color: $dark-knight;
+    z-index: 1;
+    margin: 45px 24px;
+  }
+  
+  .toggle ul li.active {
+    color: $black-market;
+  }

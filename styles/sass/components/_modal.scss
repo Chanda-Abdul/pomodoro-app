@@ -1,0 +1,108 @@
+.settings-modal {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.75);
+  @include flex(column, flex-start, center);
+  transition: all .4s;
+
+  /* initially hidden  */
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:target {
+    /* show  */
+    height: 100vh;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+
+ 
+}
+
+
+/* Settings Card */
+.modal-container {
+ 
+  opacity: 0;
+  transform: translate(50%, 0%) scale(.25);
+  transition: all .4s .2s;
+}
+
+.settings-modal:target>.modal-container {
+  opacity: 1;
+  transform: translate(0%, 0%) scale(1);
+}
+
+.card {
+  min-height: 549px;
+  width: 327px;
+  margin-top: 46px;
+  background-color: $baby-powder;
+  border-radius: 1.6rem;
+  color: $dark-knight;
+  padding: 0 1.5rem;
+  text-align: center;
+  justify-content: space-between;
+  padding-bottom: 36px;
+  transform: translate(0%, 0%);
+}
+
+
+.card-title,
+label {
+  width: 100%;
+  @include flex(row, space-between, center);
+
+}
+
+.card-title {
+  padding: 1.5rem 0;
+}
+
+label {
+  min-height: 4rem;
+}
+
+.card-title h2 {
+  font-size: 2rem;
+  line-height: 25px;
+}
+
+hr {
+  border: 1px solid $diamonds-in-the-sky;
+  width: 100%;
+}
+
+.full {
+  width: 327px;
+}
+
+.card-content {
+  width: 100%;
+
+  /* margin: 1.5rem 0; */
+}
+
+.card-content section {
+  /* width: 100%; */
+  margin: 1.5rem 0;
+}
+
+h4.section-title {
+  margin-bottom: 18px;
+}
+
+form {
+  /* margin: 1.5rem 0; */
+}
+
+.font-options {
+  @include flex(row, center, center);
+
+}

@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+
+}
+
+
+html, body {
+    min-height: 100vh;
+    width: 100%;
+}
+
+html {
+    // height: 100vh;
+    /* This defines what 1.6rem is  */
+    font-size: 62.5%;
+}
+
+
+header {
+    @include flex(column, space-evenly, center);
+
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.mobile-only {
+    display: block;
+}
+
+.desktop-only {
+    display: none;
+}
