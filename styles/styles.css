@@ -183,38 +183,39 @@ button.btn-option {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 6;
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  transition: all .4s;
   /* initially hidden  */
   visibility: hidden;
   opacity: 0;
   width: 0;
   height: 0; }
-  .settings__modal:target {
-    /* show  */
-    height: 100vh;
-    width: 100%;
-    opacity: 1;
-    visibility: visible; }
-
-.settings__modal:target ~ .__container {
-  opacity: 1;
-  transform: translate(0%, 0%) scale(1); }
 
 .settings__container {
+  z-index: 7;
   opacity: 0;
-  transform: translate(50%, 0%) scale(0.25);
+  transform: translate(0%, -100%) scale(0.25);
   transition: all .4s .2s; }
+
+.settings__modal:target,
+.settings__modal:target .settings__container {
+  /* show  */
+  height: 100vh;
+  width: 100vw;
+  opacity: 1;
+  visibility: visible; }
+
+.settings__modal:target .settings__container {
+  transform: translate(0, 0) scale(1); }
 
 .settings__card {
   min-height: 549px;
   width: 327px;
-  margin-top: 46px;
+  margin: 46px auto;
   background-color: white;
   border-radius: 1.6rem;
   color: #161932;
@@ -222,7 +223,7 @@ button.btn-option {
   text-align: center;
   justify-content: space-between;
   padding-bottom: 36px;
-  transform: translate(0%, 0%); }
+  transition: all .2s; }
   .settings__card--title,
   .settings__card label {
     width: 100%;
@@ -248,6 +249,83 @@ button.btn-option {
     flex-direction: row;
     justify-content: center;
     align-items: center; }
+
+.slider {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 3rem auto;
+  width: 35.7rem;
+  height: 7.3rem;
+  background: #161932;
+  border-radius: 3.15rem; }
+  .slider__container * {
+    z-index: 2; }
+  .slider__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 3.15rem; }
+  .slider__input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 6.3rem;
+    color: #1e213e;
+    transition: color .15s ease-in; }
+    .slider__input[type="radio"] {
+      /* Hide the browser's default radio button */ }
+      .slider__input[type="radio"]:not(:checked), .slider__input[type="radio"]:checked {
+        display: none; }
+  .slider__input[type="radio"]:checked + .slider__label {
+    background-color: #f87272;
+    z-index: 5;
+    transition: transform 600ms cubic-bezier(0.02, 0.94, 0.09, 0.97), background-color 300ms cubic-bezier(0.17, 0.67, 0.14, 1.03);
+    transform: translate3d(1rem, 0, 0); }
+  .slider__input[type="pomodoro-select"]:checked ~ .slider__indicator {
+    transform: translateX(0); }
+  .slider__input[type="short-break-select"]:checked ~ .slider__indicator {
+    transform: translateX(100%); }
+  .slider__input[type="long-break-select"]:checked ~ .slider__indicator {
+    transform: translateX(200%); }
+  .slider__label {
+    width: 100%;
+    height: 75%;
+    border-radius: 3.15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: color 200ms ease-out;
+    z-index: 4; }
+    .slider__label:hover {
+      background-color: #1e213e;
+      color: white; }
+  .slider__indicator {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    width: 33%;
+    transition: left 0.1s ease-out;
+    height: 5.3rem;
+    top: -.5rem;
+    left: 0;
+    border-radius: 3.15rem; }
 
 .timer {
   display: flex;
@@ -290,24 +368,6 @@ button.btn-option {
     font-size: 5rem;
     line-height: 6.5rem;
     margin: 5px 1.6rem; }
-
-.toggle ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-  height: 63px;
-  width: 327px;
-  left: 24px;
-  top: 101px;
-  border-radius: 31.5px;
-  background-color: #161932;
-  z-index: 1;
-  margin: 45px 24px; }
-
-.toggle ul li.active {
-  color: #1e213e; }
 
 .footer {
   margin-bottom: 1rem; }

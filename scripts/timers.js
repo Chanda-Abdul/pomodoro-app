@@ -1,6 +1,12 @@
 /* Timer - Toggle Timer Type */
-/* TO-DO => toggle function */
-const timerOptions = ['pomodoro', 'short break', 'long break'];
+
+let timerSelect = document.querySelectorAll('.slider__input');
+let currentTimer = 'pomodoro';
+for (let i = 0; i < timerSelect.length; i++) {
+  timerSelect[i].onclick = function () {
+    currentTimer = this.value;
+  };
+}
 
 /* Timer - Progress Ring Display */
 /* TO-DO => progress ring functionality */

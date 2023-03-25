@@ -22,7 +22,7 @@ const progressRingColor = document.getElementById('__time-progress-ring');
 let currentAccentColor = '';
 let currentProgressRingColor = '';
 
-console.log(currentTimerType.classList)
+
 /* TO-DO => update active color buttonOptions.innerHTML = '✔️'*/
 function updateAccentColor(accentColor) {
   currentProgressRingColor = accentColor;

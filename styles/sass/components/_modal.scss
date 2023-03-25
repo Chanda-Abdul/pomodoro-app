@@ -1,46 +1,43 @@
 .settings {
 
   &__modal {
-
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 6;
     background-color: rgba(0, 0, 0, 0.75);
     @include flex(column, flex-start, center);
-    transition: all .4s;
-
     /* initially hidden  */
     visibility: hidden;
     opacity: 0;
     width: 0;
     height: 0;
-
-    &:target {
-      /* show  */
-      height: 100vh;
-      width: 100%;
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-
-  &__modal:target~.__container {
-    opacity: 1;
-    transform: translate(0%, 0%) scale(1);
   }
 
   &__container {
-
+    z-index: 7;
     opacity: 0;
-    transform: translate(50%, 0%) scale(.25);
+    transform: translate(0%, -100%) scale(.25);
     transition: all .4s .2s;
+  }
+
+  &__modal:target,
+  &__modal:target &__container {
+    /* show  */
+    height: 100vh;
+    width: 100vw;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__modal:target &__container {
+    transform: translate(0, 0) scale(1);
   }
 
   &__card {
     min-height: 549px;
     width: 327px;
-    margin-top: 46px;
+    margin: 46px auto;
     background-color: $baby-powder;
     border-radius: 1.6rem;
     color: $dark-knight;
@@ -48,7 +45,8 @@
     text-align: center;
     justify-content: space-between;
     padding-bottom: 36px;
-    transform: translate(0%, 0%);
+    transition: all .2s;
+
 
     &--title,
     label {
@@ -88,11 +86,10 @@
     &--select {
       &-time {}
     }
-    &--options {
-  @include flex(row, center, center);
 
-}
+    &--options {
+      @include flex(row, center, center);
+
+    }
   }
 }
-
-

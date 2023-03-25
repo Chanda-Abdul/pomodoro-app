@@ -71,6 +71,7 @@ Your users should be able to:
 
 - [The Pomodoro Technique](https://todoist.com/productivity-methods/pomodoro-technique) - What is the Pomodoro Technique and how to use it
 - [Project 1, Advanced CSS and Sass Udemy Course by Jonas Schmedtmann](https://www.udemy.com/course/advanced-css-and-sass) 
+- [Pure CSS Toggle Multi-Switch (Codepen)](https://codepen.io/markcaron/pen/qXYJVm)
 
 ## Author
 

@@ -21,7 +21,7 @@
          class="header__logo"
          alt="logo"></header>
   <main>
-   
+
     <div class="container__pomodoro body__font-roboto"
          id="pomodoro">
       <div class="info">
@@ -53,16 +53,42 @@
         </div>
       </div> -->
 
-      <!-- Toggle time  -->
-      <div class="toggle">
-        <!-- TO-DO  => add toggle functionality -->
-        <ul class="body__font-secondary">
-          <li class="btn btn-toggle"
-              id="active-toggle">pomodoro</li>
-          <li>short break</li>
-          <li>long break</li>
-        </ul>
-      </div>
+      <!-- Timer select  -->
+      <form class="slider">
+        <fieldset class="slider__container body__font-secondary">
+          <legend></legend>
+          <input type="radio"
+                 class="slider__input"
+                 name="slider"
+                 value="pomodoro"
+                 id="pomodoro-select"
+                 checked>
+          <label for="pomodoro-select"
+                 class="slider__label">pomodoro</label>
+
+          <input type="radio"
+                 class="slider__input"
+                 name="slider"
+                 value="short-break"
+                 id="short-break-select">
+
+          <label for="short-break-select"
+                 class="slider__label">short break</label>
+
+          <input type="radio"
+                 class="slider__input"
+                 name="slider"
+                 value="long-break"
+                 id="long-break-select">
+
+          <label for="long-break-select"
+                 class="slider__label">long break</label>
+          <div class="slider__indicator"></div>
+        </fieldset>
+      </form>
+
+
+
 
 
       <!-- Timer -->
@@ -173,7 +199,7 @@
             </form>
             </section>
             <hr>
-            <!-- TO-DO => Add Dark and light mode -->
+            <!-- TO-DO (Bonus) => Add Dark and light mode -->
             <section class="settings__section--scheme desktop-only">
               <h4 class="settings__section--title">Theme (Light or Dark)</h4>
               <div class="settings__section--options-font">
@@ -203,7 +229,7 @@
               <div class="settings__section--options-color">
                 <button class="btn-option peach active"
                         onclick="updateAccentColor('peach')">
-                        <img src=""
+                  <img src=""
                        alt="">&nbsp;</button>
                 <button class="btn-option blue"
                         onclick="updateAccentColor('blue')">&nbsp;</button>
