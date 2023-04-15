@@ -1,53 +1,97 @@
 .timer {
+  position: relative;
   @include flex(column, center, center);
-  // TO-DO=> update to clip-path: circle();
-  // -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  // clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  // border-top-left-radius: 3px;
-  // border-top-right-radius: 3px;
-  height: 30rem;
-  width: 30rem;
-  padding: 1.6rem;
-  border-radius: 50%;
-  background: linear-gradient(315deg,
-      $quill-tip 0%,
-      $liberty-blue 100%);
-  box-shadow: -5rem -5rem 16rem $quill-tip,
-    5rem 5rem 16rem $shadow-dancer;
-
-  &__progress-ring {
-
-    background: radial-gradient($dark-knight 50%, transparent 51%),
-      conic-gradient(transparent 0deg 220deg, $baby-powder 220deg 360deg),
-      conic-gradient($georgia-peach 0deg, $georgia-peach 90deg, $georgia-peach 180deg, $georgia-peach);
-    border-radius: 50%;
-    /* width: 12rem; */
-    /* height: 12rem; */
-    /* // For animations...
-// transition: all 500ms ease-in;
-// will-change: transform; */
+  width: 100%;
+  margin-top: 3rem;
+  input {
     position: absolute;
-    /* border: .8rem solid $georgia-peach; */
-    /* border-radius: 16rem; */
-    z-index: 0;
-    height: 248px;
-    width: 248px;
+    top: 20px;
+    left: 20px;
+    width: 80px;
   }
+  &__ring {
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    padding: 3.5rem;
+    box-shadow: 6px 6px 10px -1px rgba($dark-knight, .15), -6px -6px 10px -1px rgba($diamonds-in-the-sky, .7);
+
+    &--outer {}
+
+    &--inner {
+     @include flex(column, center, center);
+      width: 23rem;
+      height: 23rem;
+      border-radius: 50%;
+      box-shadow: inset 4px 4px 6px -1px rgba($dark-knight, .15), inset -4px -4px 6px -1px rgba($diamonds-in-the-sky, .7), -0.5px -0.5px 0px rgba($diamonds-in-the-sky, 1), 0.5px 0.5px 0px rgba($dark-knight, 1), -0px 12px 10px -10px rgba($dark-knight, 0.05);
+      
+    }
+
+    &--progress {
+      position: absolute;
+      top: .5rem;
+      z-index: 4;
+      left: calc(50% - 15rem);
+
+      &-circle {
+        transition: 0.35s stroke-dashoffset;
+        /* axis compensation */ 
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+      }
+    }
+
+
+
+  }
+
 
   &__details {
     position: absolute;
-    z-index: 1;
+    z-index: 6;
     @include flex(column, center, center);
     padding: 4rem;
     height: 228px;
     width: 228px;
     border-radius: 50%;
     background-color: $dark-knight;
+    top: 4rem;
   }
 
   &__current-time {
+
+    @include heading-primary;
     font-size: 5rem;
     line-height: 6.5rem;
     margin: 5px 1.6rem;
+
+    &--status {
+
+      @include heading-secondary;
+    }
   }
+
+  // circle {
+
+  //   fill: none;
+  //   stroke: url(#GradientColor);
+  //   stroke-width: 3.5rem;
+
+  //   animation: anim 2s linear forwards;
+
+  // }
+
+  // svg {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  // }
+
+
+  // @keyframes anim {
+  //   100% {
+  //     stroke-dashoffset: 289;
+  //   }
+
+  // }
 }

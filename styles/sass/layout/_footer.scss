@@ -1,16 +1,21 @@
 .footer {
-	margin-bottom: 1rem;
+	
+	height: 5rem;
+	margin: 3rem auto 1rem auto;
 
 	&__attribution {
+		color: $transparent-blue;
 		font-size: .75rem;
-		// @include variables.subheading-secondary;
+		@include body-primary-text;
 		margin: .5rem;
 		text-align: center;
+		letter-spacing: normal;
 
 		a {
+			@include body-primary-text;
 			color: $transparent-blue;
-			font-size: 1.2rem;
 			letter-spacing: normal;
+		
 		}
 	}
 }

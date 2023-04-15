@@ -1,30 +1,23 @@
-.container__pomodoro {
-    // height: 100vh;
-    @include flex(column, space-evenly, center);
+.container {
+    // height: 100%;
+    padding: 2rem;
+    @include flex(column, space-between, center);
+    @include body-primary-text;
 }
 
 .info {
-    display: block;
-
-    // width: 100%;
-    // position: relative;
-    &__primary-heading {
-        // font-size: 1rem;
+    &__title {
+    @include heading-primary;
         font-size: 1.75rem;
-        //   line-height: 7.5rem;
-        //   letter-spacing: -0.313rem;
     }
 
     &__icon {
-
-        display: inline-block;
-
         :hover {}
 
     }
 
     &__details {
-        // @include flex(column, center, center);
+        @include flex(column, center, center);
         height: 0;
         width: 0;
         position: fixed;

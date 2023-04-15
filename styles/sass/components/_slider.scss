@@ -12,6 +12,7 @@
   }
 
   &__container {
+    @include body-secondary-text;
     @include flex(row, space-around, center);
     position: absolute;
     top: 0;

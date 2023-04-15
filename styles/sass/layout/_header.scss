@@ -1,5 +1,6 @@
 .header{
-    margin: 3rem 2rem;
+    height: 5rem;
+    margin: 1rem auto;
     @include flex(column, space-evenly, center);
 
 }

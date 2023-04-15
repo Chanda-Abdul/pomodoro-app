@@ -62,16 +62,17 @@ Your users should be able to:
 
 
 ### Useful resources
-
+- [Theming Web Apps with SASS](https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1)
 - [JavaScript DOM Manipulation, Project 4](https://youtu.be/5fb2aPlgoys?t=7252) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [JavaScript DOM Manipulation, Project 2](https://youtu.be/5fb2aPlgoys?t=7252) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [setInterval()](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) - The `setInterval()` method repeatedly calls a function or executes a code snippet, with a fixed time delay between each call.
 - [clearInterval()](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval) - The global `clearInterval()` method cancels a timed, repeating action which was previously established by a call to `setInterval()`.
 - [setTimeout()](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) - The global `setTimeout()` method sets a timer which executes a function or specified piece of code once the timer expires.
-
+- [How to build a Pomodoro Timer App with JavaScript](https://freshman.tech/pomodoro-timer/) -  In this tutorial, you’ll learn how to create such a timer in the browser with JavaScript..
 - [The Pomodoro Technique](https://todoist.com/productivity-methods/pomodoro-technique) - What is the Pomodoro Technique and how to use it
 - [Project 1, Advanced CSS and Sass Udemy Course by Jonas Schmedtmann](https://www.udemy.com/course/advanced-css-and-sass) 
 - [Pure CSS Toggle Multi-Switch (Codepen)](https://codepen.io/markcaron/pen/qXYJVm)
+- [How To Make Circular Progress Bar Using HTML CSS JavaScript | Neomorphism Progress Bar](https://www.youtube.com/watch?v=mSfsGTIQlxg)
 
 ## Author
 

@@ -12,14 +12,17 @@ $liberty-blue: hsl(234, 50%, 11%);
 $diamonds-in-the-sky: hsl(0, 3%, 89%);
 
 $font-size-default: 1.6rem;
+$font-weight-default: 700;
+$line-height-default: 1.6rem;
 
-.peach {
-    background-color: $georgia-peach;
-  }
-  
-  .blue {
-    background-color: $robins-egg-blue;
-  }
-  .orchid {
-    background-color: $electric-orchid;
-  }
+@mixin peachAccentColor {
+  background-color: $georgia-peach;
+}
+
+@mixin blueAccentColor {
+  background-color: $robins-egg-blue;
+}
+
+@mixin orchidAccentColor {
+  background-color: $electric-orchid;
+}

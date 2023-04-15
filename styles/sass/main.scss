@@ -2,16 +2,12 @@
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
-@import "base/animations";
-@import "base/base";
-@import "base/typography";
-@import "base/utilities";
+@import "base/animations", "base/base", "base/fonts", "base/typography", "base/utilities";
 
 @import "components/button";
 @import "components/modal";
 @import "components/slider";
 @import "components/timer";
-
 
 @import "layout/forms";
 @import "layout/footer";

@@ -24,6 +24,7 @@
      padding: 0;
      background-color: transparent;
      border: none;
+    //  margin: 3rem auto;
  }
 
  .btn-close {
@@ -35,12 +36,12 @@
  }
 
  button.btn-option {
-     height: 5.6rem;
-     width: 5.6rem;
+     height: 4rem;
+     width: 4rem;
      text-align: center;
-     padding: .8rem;
+     padding: .9rem;
      margin: 0 1.6rem;
-     border-radius: 16rem;
+     border-radius: 50%;
  }
 
  .font-options button.btn-option {
@@ -56,10 +57,13 @@
  }
 
  .btn-apply {
-     position: relative;
+     position: absolute;
      z-index: 1;
      height: 5.3rem;
      width: 14rem;
-     border-radius: 26.5px;
-     top: calc(-5.3rem / 2);
+     border-radius: 2.65rem;
+    bottom: calc(-5.3rem / 2);
+    // margin: auto;
+    right: calc(50vw - 10rem);
+    text-decoration: none;
  }

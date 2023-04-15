@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-
   <link rel="icon"
         type="image/png"
         sizes="32x32"
@@ -16,21 +15,23 @@
   <title>Frontend Mentor | Pomodoro app</title>
 </head>
 
-<body>
-  <header class="header"><img src="/assets/logo.svg"
+<body class="theme-kumbh theme-aqua">
+  <header class="header">
+    <img src="/assets/logo.svg"
          class="header__logo"
-         alt="logo"></header>
+         alt="logo">
+  </header>
   <main>
 
-    <div class="container__pomodoro body__font-roboto"
+    <div class="container"
          id="pomodoro">
-      <div class="info">
-        <h1 class="info__primary-heading">
+      <section class="info">
+        <h1 class="info__title">
           Beat procrastination and improve your focus one pomodoro at a time
         </h1>
         <i class="ph ph-info"
            id="info__icon"></i>
-      </div>
+      </section>
       <!-- TO-DO (Bonus)=> add info icon hover functionality -->
       <!-- Info popup  -->
       <!-- <div class="info__details"
@@ -55,33 +56,33 @@
 
       <!-- Timer select  -->
       <form class="slider">
-        <fieldset class="slider__container body__font-secondary">
+        <fieldset class="slider__container">
           <legend></legend>
           <input type="radio"
                  class="slider__input"
-                 name="slider"
+                 name="timer-option"
                  value="pomodoro"
-                 id="pomodoro-select"
+                 id="pomodoro-option"
                  checked>
-          <label for="pomodoro-select"
+          <label for="pomodoro-option"
                  class="slider__label">pomodoro</label>
 
           <input type="radio"
                  class="slider__input"
-                 name="slider"
-                 value="short-break"
-                 id="short-break-select">
+                 name="timer-option"
+                 value="shortBreak"
+                 id="short-break-option">
 
-          <label for="short-break-select"
+          <label for="short-break-option"
                  class="slider__label">short break</label>
 
           <input type="radio"
                  class="slider__input"
-                 name="slider"
-                 value="long-break"
-                 id="long-break-select">
+                 name="timer-option"
+                 value="longBreak"
+                 id="long-break-option">
 
-          <label for="long-break-select"
+          <label for="long-break-option"
                  class="slider__label">long break</label>
           <div class="slider__indicator"></div>
         </fieldset>
@@ -89,53 +90,65 @@
 
 
 
-
-
       <!-- Timer -->
-      <div class="timer">
-        <!-- Progress-->
-        <div id="timer__progress-ring"
-             class="timer__progress-ring peach"></div>
-        <!-- TO-DO => add progress ring functionality -->
-        <div class="timer__details">
+      <section class="timer">
+        <div class="timer__ring">
+          <div class="timer__ring--outer"> </div>
+          <div class="timer__ring--inner"
+               id="progress"></div>
+          <!-- Progress-->
+          <svg class="timer__ring--progress"
+               width="30rem"
+               height="30rem">
+            <circle class="timer__ring--progress-circle accent"
+                    stroke=" "
+                    stroke-width="20"
+                    fill="transparent"
+                    cx="150"
+                    cy="150"
+                    r="13.25rem" />
+          </svg>
 
-          <!-- Timer -->
-          <h1><span class="timer__current-time"
-                  id="timer__current-time"></span></h1>
-          <!-- Status -->
-          <button class="btn btn-status"
-                  onclick="updateStatus()">
-            <h3><span class="timer__current-status"
+          <!-- Timer Counter -->
+          <div class="timer__details">
+            <span class="timer__current-time"
+                  id="current-time"></span>
+
+            <!-- Status -->
+            <button class="btn btn-status"
+                    onclick="updateStatus()">
+              <span class="timer__current-status"
                     id="timer__current-status">
-              </span></h3>
-          </button>
+              </span>
+            </button>
+          </div>
         </div>
-      </div>
-
-
-
-      <a href="#settings__modal"
-         class="btn btn-settings"><img src="/assets/icon-settings.svg"
-             alt="settings"></a>
     </div>
+    </section>
 
+    <button href="#settings__modal"
+            class="btn btn-settings">
+      <img src="/assets/icon-settings.svg"
+           alt="settings"></button>
+    </div>
     <!-- Settings Popup-->
     <div id="settings__modal"
          class="settings__modal">
       <div class="settings__container">
         <div class="settings__card">
           <div class="settings__card--title">
-            <h2>Settings</h2>
+            <h2 class="heading-primary">Settings</h2>
             <a href="#pomodoro"
                class="btn btn-close"><img src="/assets/icon-close.svg"
                    alt="icon-close"
                    class="icon"></a>
 
           </div>
-          <hr class="full">
+          <!-- <hr class="full"> -->
           <div class="settings__card--content">
             <section class="settings__card--instructions">
-              <p class="body__font-primary">pomodoros are focused work sessions — with frequent short breaks to promote
+              <p class="font-primary"><b>Pomodoros</b> 🍅 are focused work sessions — with frequent short breaks to
+                promote
                 sustained concentration and
                 stave off mental fatigue.</p>
 
@@ -147,17 +160,17 @@
                 <li>Every 4 sessions take a longer break</li>
               </ul>
             </section>
-            <hr>
-            <form action=""
-                  class="settings__form">
-              <section class="settings__section">
+            <!-- <hr> -->
 
-                <h4 class="settings__section--title">Time (minutes)</h4>
+            <section class="settings__section">
 
+              <h4 class="settings__section--title">Time (minutes)</h4>
+              <form action=""
+                    class="settings__form">
                 <label for="pomodoro"
                        class="settings__section--label-time">
 
-                  <p class="body__font-secondary">pomodoro</p>
+                  pomodoro
                   <select name="pomodoro"
                           id="pomodoro"
                           class="settings__section--select-time">
@@ -171,6 +184,7 @@
                     <option value="8">8 sessions</option>
                   </select>
                 </label>
+
                 <label for="short-break"
                        class="settings__section--label-time">
                   <p class="body__font-secondary">short break</p>
@@ -196,9 +210,9 @@
                   </select>
                 </label>
 
-            </form>
+              </form>
             </section>
-            <hr>
+            <!-- <hr> -->
             <!-- TO-DO (Bonus) => Add Dark and light mode -->
             <section class="settings__section--scheme desktop-only">
               <h4 class="settings__section--title">Theme (Light or Dark)</h4>
@@ -207,7 +221,7 @@
                 <button class="btn-option dark"> <i class="ph ph-star-and-crescent"></i></button>
               </div>
             </section>
-            <hr>
+            <!-- <hr> -->
 
             <!-- Select Font -->
             <section class="settings__section">
@@ -221,7 +235,7 @@
                         onclick="updateFont('space')">Aa</button>
               </div>
             </section>
-            <hr>
+            <!-- <hr> -->
 
             <!-- Select Accent Color -->
             <section class="settings__section">
@@ -243,7 +257,7 @@
              onclick="applySettings()">Apply</a>
         </div>
       </div>
-    </div>
+
   </main>
   <footer class="footer">
     <div class="footer__attribution">
@@ -253,7 +267,7 @@
          rel='noreferrer'>
         Frontend Mentor
       </a>
-      . Coded by <a href='https://www.ChandaCodes.com'> Chanda Abdul</a>.
+      . Coded by <a href='https://www.ChandaAbdul.dev'> Chanda Abdul</a>.
     </div>
   </footer>
 </body>
