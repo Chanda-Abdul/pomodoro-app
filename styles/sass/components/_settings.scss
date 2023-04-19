@@ -1,41 +1,33 @@
+.hidden {
+  display: none;
+}
+
 .settings {
-  *{display: none;
-visibility: hidden;}
+
+
+  transition: all .4s .2s;
 
   &__modal {
+    width: 100vw;
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.85);
-    @include flex(column, flex-start, center);
-    // padding-top: 4.8rem;
-    /* initially hidden  */
-    visibility: hidden;
-    opacity: 0;
-    width: 0;
-    height: 0;
-    // height: 100%;
-    // width: 100%;
+
+
+    &::after {
+      content: '';
+      z-index: 7;
+    }
   }
 
-  &__container {
-    z-index: 7;
-    // opacity: 0;
-    transition: all .4s .2s;
-  }
+  &__container {}
 
-  &__modal:target,
-  &__modal:target &__container {
-    /* show  */
-    height: 100%;
-    width: 100%;
-    opacity: 1;
-    visibility: visible;
-  }
 
   &__modal:target &__container {
-    transform: translate(0, 0) scale(1);
+    // transform: translate(0, 0) scale(1);
   }
 
   &__card {
@@ -49,7 +41,8 @@ visibility: hidden;}
     justify-content: space-between;
     padding-bottom: 36px;
     transition: all .2s;
-position: relative;
+    position: relative;
+
     &--title {
       @include flex(row, space-between, center);
       font-size: 2rem;
@@ -59,7 +52,9 @@ position: relative;
       // padding-top: 1.5rem;
       border-bottom: 1px solid $diamonds-in-the-sky;
     }
-&--instructions {}
+
+    &--instructions {}
+
     &--content {
       width: 100%;
       padding: 2.4rem;
@@ -75,9 +70,11 @@ position: relative;
           margin: 1.5rem;
         }
 
-        & form {width: 100%;
+        & form {
+          width: 100%;
+
           & label {
-            
+
             @include flex(row, space-between, center);
             font-size: 1.2rem;
             font-weight: 700;
@@ -119,17 +116,48 @@ position: relative;
       }
     }
 
-    
+
   }
 
   &__section {
     @include flex(column, center, center);
+
     &--options {
-      &-font {
+
+      &-font label {
+        background-color: $transparent-blue;
+      }
+
+      &-font,
+      &-color {
+
         @include flex(row, center, center);
         // height: 4.0rem;
         width: 15.2rem;
-       
+
+        input[type="radio"] {
+          opacity: 0;
+          position: fixed;
+          width: 0;
+          appearance: none;
+          -webkit-appearance: none;
+        }
+
+        label {
+          height: 4rem;
+          width: 4rem;
+          text-align: center;
+          padding: .9rem;
+          margin: 0 1.6rem;
+          border-radius: 50%;
+
+          color: $black-market;
+          opacity: 0.73;
+          @include flex(row, center, center);
+          // height: 4.0rem;
+          width: 15.2rem;
+        }
+
       }
 
 

@@ -19,8 +19,8 @@ Your users should be able to:
 <!-- TO-DO => review desktop styles -->
 - [ ] Set a pomodoro timer and short & long break timers
 - [ ] Customize how long each timer runs for
-- [ ] See a circular progress bar that updates every minute and represents how far through their timer they are
-- [ ] Customize the appearance of the app with the ability to set preferences for colors and fonts
+- [x] See a circular progress bar that updates every minute and represents how far through their timer they are
+- [x] Customize the appearance of the app with the ability to set preferences for colors and fonts
 
 ## Table of contents
 

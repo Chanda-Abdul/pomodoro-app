@@ -1,26 +1,11 @@
-@import "abstracts/functions";
-@import "abstracts/mixins";
-@import "abstracts/variables";
+@import "abstracts/functions", "abstracts/mixins", "abstracts/variables";
 
 @import "base/animations", "base/base", "base/fonts", "base/typography", "base/utilities";
 
-@import "components/button";
-@import "components/modal";
-@import "components/slider";
-@import "components/timer";
+@import "components/button", "components/slider", "components/settings", "components/timer";
 
-@import "layout/forms";
-@import "layout/footer";
-@import "layout/header";
+@import "layout/forms", "layout/footer", "layout/header";
 
 @import "pages/home";
 
 @import "themes/themes";
-
-
-
-
- 
-  
-  
- 

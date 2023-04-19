@@ -1,6 +1,6 @@
 /* Timer Data */
 const timer = {
-  pomodoro: 25,
+  pomodoro: 1,
   shortBreak: 5,
   longBreak: 30,
   pomodorosRemainingUntilLongBreak: 4,

@@ -15,14 +15,14 @@ $font-size-default: 1.6rem;
 $font-weight-default: 700;
 $line-height-default: 1.6rem;
 
-@mixin peachAccentColor {
+.color-peach{
   background-color: $georgia-peach;
 }
 
-@mixin blueAccentColor {
+.color-aqua {
   background-color: $robins-egg-blue;
 }
 
-@mixin orchidAccentColor {
+.color-orchid{
   background-color: $electric-orchid;
 }

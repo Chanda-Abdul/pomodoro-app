@@ -16,7 +16,7 @@ $themes: (
 );
 
 /*
-   * Implementation of themes
+Implementation of themes
    */
 @mixin themify($themes) {
 
@@ -45,6 +45,7 @@ $themes: (
 header,
 main,
 footer {
+    
     @include themify($themes) {
         font-family: themed('fontFamily'), themed('fallbackFont');
 
@@ -63,7 +64,7 @@ footer {
 
     // }
 
-    .accent {
+    .slider__input[type="radio"]:checked + .slider__label.accent,  .accent{
 
         transition: color 0.1s, border-color 0.1s, background-color 0.1s;
 

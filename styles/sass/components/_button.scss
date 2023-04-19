@@ -2,7 +2,7 @@
 
  button,
  .btn {
-        background-color: $georgia-peach;
+     background-color: $georgia-peach;
      color: $baby-powder;
      font-size: 1.6rem;
      line-height: 2rem;
@@ -24,7 +24,7 @@
      padding: 0;
      background-color: transparent;
      border: none;
-    //  margin: 3rem auto;
+     //  margin: 3rem auto;
  }
 
  .btn-close {
@@ -35,20 +35,7 @@
      padding: 0;
  }
 
- button.btn-option {
-     height: 4rem;
-     width: 4rem;
-     text-align: center;
-     padding: .9rem;
-     margin: 0 1.6rem;
-     border-radius: 50%;
- }
 
- .font-options button.btn-option {
-     background-color: $transparent-blue;
-     color: $black-market;
-     opacity: 0.73;
- }
 
  .font-options button.btn-option.active {
      background-color: $dark-knight;
@@ -62,8 +49,8 @@
      height: 5.3rem;
      width: 14rem;
      border-radius: 2.65rem;
-    bottom: calc(-5.3rem / 2);
-    // margin: auto;
-    right: calc(50vw - 10rem);
-    text-decoration: none;
+     bottom: calc(-5.3rem / 2);
+     margin: auto;
+     left: calc(32.7rem/2 - 7rem);
+     text-decoration: none;
  }
