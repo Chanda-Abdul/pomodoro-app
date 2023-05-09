@@ -1,145 +1,148 @@
 /* Timer Data */
 const timer = {
-  pomodoro: 1,
-  shortBreak: 5,
-  longBreak: 30,
-  pomodorosRemainingUntilLongBreak: 4,
-  remainingTime: {
-    timerLength: 25 * 60,
-    timeRemaining: 25 * 60,
-    minutes: 25,
-    seconds: 0,
-    progressPercentage: 0,
+  settings: {
+    pomodoro: 25,
+    shortBreak: 5,
+    longBreak: 30,
+    pomodorosRemainingUntilLongBreak: 4,
   },
-  statusOptions: 'pause' || 'start' || 'restart',
-  currentStatus: 'restart',
-  nextStatus: 'start',
+  currentTimer: 'pomodoro' || 'shortBreak' || 'longBreak',
+
+  status: {
+    currentStatus: 'pause' || 'start' || 'restart' || 'default',
+    nextStatus: 'pause' || 'start' || 'restart' || 'default',
+  },
+};
+let { currentTimer } = timer;
+
+let remainingTime = {
+  timerLength: timer.settings[timer.currentTimer] * 60,
+  timeRemaining: timer.settings[timer.currentTimer] * 60,
+  minutes: timer.settings[timer.currentTimer],
+  seconds: 0,
+  progressPercentage: 1,
 };
 
 /* Timer - Toggle Timer Type */
-let timerOptions = document.querySelectorAll('.slider__input');
+const timerOptions = document.querySelectorAll('input[name="timer-option"]');
 
 for (let i = 0; i < timerOptions.length; i++) {
   timerOptions[i].addEventListener('change', handleTimerOption);
 }
 
-function handleTimerOption(e) {
-  let option = e.target.value;
-  updateTimerOption(option);
-}
+/* Set Interval, Update Timer & Status */
+let interval;
 
 function updateTimerOption(option) {
-  timer.option = option;
+  timer.currentTimer = option;
 
-  timer.remainingTime = {
-    timerLength: timer[option] * 60,
-    timeRemaining: timer[option] * 60,
-    minutes: timer[option],
+  remainingTime = {
+    timerLength: timer.settings[timer.currentTimer] * 60,
+    timeRemaining: timer.settings[timer.currentTimer] * 60,
+    minutes: timer.settings[timer.currentTimer],
     seconds: 0,
+    progressPercentage: 1,
   };
-  timer.currentStatus= 'restart';
-  timer.nextStatus= 'start';
+  updateTimerStatus('default', 'start');
+  clearAndUpdate();
+}
+function handleTimerOption(e) {
+  updateTimerOption(e.target.value);
 
+  for (const timerOption of timerOptions) {
+    timerOption.checked = timerOption.value === timer.currentTimer;
+  }
+}
+
+function startTimer() {
+  updateTimerStatus('start', 'pause');
+
+  const endTime = Date.parse(new Date()) + remainingTime.timeRemaining * 1000;
+
+  interval = setInterval(() => {
+    let timeRemaining = Math.round((endTime - Date.now()) / 1000);
+    remainingTime.timeRemaining = timeRemaining--;
+    remainingTime.minutes = Math.floor(timeRemaining / 60);
+    remainingTime.seconds = timeRemaining % 60;
+    remainingTime.progressPercentage =
+      remainingTime.timeRemaining / remainingTime.timerLength;
+
+    updateTimerUI();
+
+    if (timeRemaining <= 0) {
+      resetTimer();
+    }
+  }, 1000);
+}
+
+function resetTimer() {
+  timer.currentTimer === 'shortBreak'
+    ? (timer.currentTimer = 'longBreak')
+    : timer.currentTimer === 'pomodoro'
+    ? (timer.currentTimer = 'shortBreak')
+    : (timer.currentTimer = 'pomodoro');
+
+  updateTimerOption(timer.currentTimer);
+}
+
+function updateTimerStatus(current, next) {
+  timer.status.currentStatus = current;
+  timer.status.nextStatus = next;
+  current === 'pause'
+    ? clearAndUpdate()
+    : current === 'restart'
+    ? startAndUpdate()
+    : null;
+}
+
+function clearAndUpdate() {
+  clearInterval(interval);
   updateTimerUI();
 }
 
-/* Timer - Current Time */
-let currentTime = document.getElementById('current-time');
-
-function updateTimerUI() {
-  const { remainingTime } = timer;
-  setProgress();
-  // console.log(timer.remainingTime);
-  const minutes = `${remainingTime.minutes}`.padStart(2, '0');
-  const seconds = `${remainingTime.seconds}`.padStart(2, '0');
-  currentTime.innerHTML = `${minutes}:${seconds}`;
-  timerStatus.innerHTML = timer.nextStatus;
+function startAndUpdate() {
+  startTimer();
+  updateTimerUI();
 }
 
 /* Set Initial Timer Status  */
 document.addEventListener('DOMContentLoaded', () => {
   updateTimerOption('pomodoro');
+  timerOptions.forEach((option) =>
+    option.addEventListener('change', handleTimerOption)
+  );
 });
 
 /* Timer Status */
 let timerStatus = document.querySelector('.timer__current-status');
 
 function updateStatus() {
-  // console.log(timer.currentStatus);
-  timer.nextStatus === 'start'
+  timer.status.currentStatus === 'default'
     ? startTimer()
-    : timer.nextStatus === 'pause'
-    ? pauseTimer()
-    : restartTimer();
+    : timer.status.currentStatus === 'start'
+    ? updateTimerStatus('pause', 'restart')
+    : timer.status.currentStatus === 'pause'
+    ? startTimer()
+    : updateTimerStatus('restart', 'pause');
 }
 
-/* Set Interval, Update Timer & Status */
-let interval;
+timerStatus.addEventListener('change', updateStatus);
 
-function startTimer() {
-  timer.currentStatus = 'start';
-  timer.nextStatus = 'pause';
+function updateTimerUI() {
+  /* Set Visual */
+  let visual = document.getElementById('visual');
+  let pomsRemaining = '🍅 '.repeat(
+    timer.settings.pomodorosRemainingUntilLongBreak
+  );
+  visual.innerHTML = pomsRemaining;
 
-  // let { minutes, seconds, timeRemaining } = timer.remainingTime;
-  const endTime =
-    Date.parse(new Date()) + timer.remainingTime.timeRemaining * 1000;
-  const currentTime = Date.parse(new Date());
-  // console.log(endTime, currentTime);
-  // console.log(endTime - currentTime);
-  //  remainder = endTime - currentTime;
-
-  let timeRemaining = Number.parseInt((endTime - currentTime) / 1000, 10);
-
-  // time = timer.remainingTime.timeRemaining
-  // console.log(timer.remainingTime);
-
-  interval = setInterval(function () {
-    timeRemaining--;
-    timer.remainingTime.timeRemaining = timeRemaining;
-    timer.remainingTime.minutes = Number.parseInt(
-      (timeRemaining / 60) % 60,
-      10
-    );
-    timer.remainingTime.seconds = Number.parseInt(timeRemaining % 60, 10);
-    timer.remainingTime.progressPercentage =  timer.remainingTime.timeRemaining/timer.remainingTime.timerLength;
-
-    updateTimerUI();
- 
-
-    if (timeRemaining <= 0) {
-      timer.currentStatus = 'restart';
-      timer.nextStatus = 'pause';
-      clearInterval(interval);
-    }
-  }, 1000);
-}
-
-function getRemainingTime(endTime) {
-  const currentTime = Date.parse(new Date());
-  const difference = endTime - currentTime;
-
-  const total = Number.parseInt(difference / 1000, 10);
-  const minutes = Number.parseInt((total / 60) % 60, 10);
-  const seconds = Number.parseInt(total % 60, 10);
-
-  return {
-    total,
-    minutes,
-    seconds,
-  };
-}
-
-function pauseTimer() {
-  timer.currentStatus = 'pause';
-  timer.nextStatus = 'restart';
-  clearInterval(interval);
-  updateTimerUI();
-}
-function restartTimer() {
-  timer.currentStatus = 'restart';
-  timer.nextStatus = 'pause';
-  startTimer();
-  updateTimerUI();
+  /* Set Timer */
+  let currentTime = document.getElementById('current-time');
+  const minutes = `${remainingTime.minutes}`.padStart(2, '0');
+  const seconds = `${remainingTime.seconds}`.padStart(2, '0');
+  currentTime.innerHTML = `${minutes}:${seconds}`;
+  timerStatus.innerHTML = timer.status.nextStatus;
+  setProgress();
 }
 
 /* Timer - Progress Ring Display */
@@ -148,12 +151,13 @@ const circle = document.querySelector('circle');
 const radius = circle.r.baseVal.value;
 
 const circumference = radius * 2 * Math.PI;
-circle.style.strokeDasharray = `${circumference * (1 + .99)}  ${circumference}`;
+circle.style.strokeDasharray = `${
+  circumference * (1 + 0.99)
+}  ${circumference}`;
 circle.style.strokeDashoffset = `${circumference}`;
 
 function setProgress() {
-circle.style.strokeDasharray = `${circumference * (1 + timer.remainingTime.progressPercentage)}  ${circumference}`;
+  circle.style.strokeDasharray = `${
+    circumference * (1 + remainingTime.progressPercentage)
+  }  ${circumference}`;
 }
-
-
-

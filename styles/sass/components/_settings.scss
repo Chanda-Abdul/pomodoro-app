@@ -141,6 +141,12 @@
           width: 0;
           appearance: none;
           -webkit-appearance: none;
+
+          &.active-font +label{
+            background-color: $dark-knight;
+            color: $baby-powder;
+            opacity: 1;
+        }
         }
 
         label {

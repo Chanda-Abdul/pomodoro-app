@@ -27,19 +27,6 @@ body {
     text-align: center;
 }
 
-// hr {
-//     margin: 0;
-//     border: 1px solid $diamonds-in-the-sky;
-//     width: 100%;
-// }
-
-
-// hr.full {
-//     // margin: 0;
-//     // padding: 0;
-//     width: 100%;
-//     width: 327px;
-// }
 
 .mobile-only {
     display: contents;
@@ -50,6 +37,6 @@ body {
 }
 
 input,
-label {
+label,a {
     cursor: pointer;
 }

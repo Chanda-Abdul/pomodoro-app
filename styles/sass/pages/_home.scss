@@ -2,12 +2,12 @@
     // height: 100%;
     padding: 2rem;
     @include flex(column, space-between, center);
-    @include body-primary-text;
+    @include body-text-primary;
 }
 
 .info {
     &__title {
-    @include heading-primary;
+    // @include heading-primary;
         font-size: 1.75rem;
     }
 

@@ -4,14 +4,51 @@ const closeSettingsBtn = document.querySelector('.btn-close');
 const applySettingsBtn = document.querySelector('.btn-apply');
 
 const body = document.getElementById('body');
-const fontOptions = document.querySelectorAll('input[name="fontOptions"]');
-const colorOptions = document.querySelectorAll('input[name="colorOptions"]');
+const fontOptions = document.querySelectorAll('input[name="font-options"]');
+const colorOptions = document.querySelectorAll('input[name="color-options"]');
 
-// console.log(body, fontOptions,  colorOptions );
+
+let selectedFont = 'theme-sans';
+let selectedColor = 'theme-peach';
+
+window.onload = function () {
+  setInitialStyles();
+};
+
+const setInitialStyles = () => {
+  /* set Kumbh Sans as font and peach as accent color on page load */
+  body.className = '';
+  body.classList.add(selectedFont);
+  body.classList.add(selectedColor);
+};
+
+// console.log(body, font-options,  color-options );
 
 /* Open Settings */
 const openSettings = () => {
   modal.classList.remove('hidden');
+
+  for (const font of font-options) {
+   
+    if (font.value === selectedFont) {
+    
+const fontButton = document.getElementById(font.id);
+fontButton.classList.add('active-font')
+  // console.log(fontButton)      
+  // selectedFont = font.value;
+    }
+  }
+  // body.classList.add(selectedFont);
+
+
+  for (const color of color-options) {
+    // console.log(color)
+    if (color.checked) {
+      // console.log(color)
+      // selectedColor = color.value;
+    }
+  }
+  // body.classList.add(selectedColor);
 };
 
 openSettingsBtn.addEventListener('click', openSettings);
@@ -34,25 +71,22 @@ document.addEventListener('keydown', function (e) {
 function applySettings() {
   body.className = '';
 
-  let selectedFont = '';
+ 
   for (const font of fontOptions) {
     if (font.checked) {
       selectedFont = font.value;
-      // break;
     }
   }
   body.classList.add(selectedFont);
 
-  let selectedColor = '';
+
   for (const color of colorOptions) {
+    // console.log(color)
     if (color.checked) {
       selectedColor = color.value;
-      // break;
     }
   }
-
   body.classList.add(selectedColor);
-  // console.log(body, fontOptions, selectedFont, colorOptions, selectedColor );
 
   closeSettings();
 }
@@ -63,10 +97,10 @@ function applySettings() {
 // TO-DO=> timer select functionality;
 
 /* TO-DO => update active color buttonOptions.innerHTML = '✔️'*/
-function updateAccentColor(accentColor) {
-  currentProgressRingColor = accentColor;
-  currentAccentColor = accentColor;
-}
+// function updateAccentColor(accentColor) {
+//   currentProgressRingColor = accentColor;
+//   currentAccentColor = accentColor;
+// }
 
 /* Set Light/Dark Theme */
 /* TO-DO => BONUS Light/Dark Theme functionality */

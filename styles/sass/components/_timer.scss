@@ -3,12 +3,14 @@
   @include flex(column, center, center);
   width: 100%;
   margin-top: 3rem;
+
   input {
     position: absolute;
     top: 20px;
     left: 20px;
     width: 80px;
   }
+
   &__ring {
     width: 30rem;
     height: 30rem;
@@ -19,12 +21,12 @@
     &--outer {}
 
     &--inner {
-     @include flex(column, center, center);
+      @include flex(column, center, center);
       width: 23rem;
       height: 23rem;
       border-radius: 50%;
       box-shadow: inset 4px 4px 6px -1px rgba($dark-knight, .15), inset -4px -4px 6px -1px rgba($diamonds-in-the-sky, .7), -0.5px -0.5px 0px rgba($diamonds-in-the-sky, 1), 0.5px 0.5px 0px rgba($dark-knight, 1), -0px 12px 10px -10px rgba($dark-knight, 0.05);
-      
+
     }
 
     &--progress {
@@ -35,7 +37,7 @@
 
       &-circle {
         transition: 0.35s stroke-dashoffset;
-        /* axis compensation */ 
+        /* axis compensation */
         transform: rotate(-90deg);
         transform-origin: 50% 50%;
       }
@@ -59,39 +61,15 @@
   }
 
   &__current-time {
-
-    @include heading-primary;
+    @include heading-extra-large-mobile;
     font-size: 5rem;
     line-height: 6.5rem;
     margin: 5px 1.6rem;
 
-    &--status {
 
-      @include heading-secondary;
-    }
   }
 
-  // circle {
-
-  //   fill: none;
-  //   stroke: url(#GradientColor);
-  //   stroke-width: 3.5rem;
-
-  //   animation: anim 2s linear forwards;
-
-  // }
-
-  // svg {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  // }
-
-
-  // @keyframes anim {
-  //   100% {
-  //     stroke-dashoffset: 289;
-  //   }
-
-  // }
+  &__current-status {
+    @include heading-medium-mobile;
+  }
 }

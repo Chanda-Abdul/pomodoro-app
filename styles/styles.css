@@ -73,24 +73,16 @@ body {
   display: none; }
 
 input,
-label {
+label, a {
   cursor: pointer; }
 
 body {
-  font-size: 1.6rem;
-  font-weight: 700;
   color: #d6dfff;
   background-color: #1e213e;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center; }
-
-h4 {
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-  letter-spacing: 0.313rem;
-  text-transform: uppercase; }
 
 /* Buttons */
 button,
@@ -123,11 +115,6 @@ button.btn-option:hover {
   align-items: center;
   padding: 0; }
 
-.font-options button.btn-option.active {
-  background-color: #161932;
-  color: white;
-  opacity: 1; }
-
 .btn-apply {
   position: absolute;
   z-index: 1;
@@ -150,14 +137,8 @@ button.btn-option:hover {
   height: 7.3rem;
   background: #161932;
   border-radius: 3.15rem; }
-  .slider__container * {
-    z-index: 2; }
   .slider__container {
-    font-size: 1.1rem;
-    font-weight: 700;
-    line-height: 1.4rem;
-    letter-spacing: 4.2px;
-    text-align: center;
+    z-index: 2;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -169,30 +150,10 @@ button.btn-option:hover {
     width: 100%;
     border: none;
     border-radius: 3.15rem; }
-  .slider__input {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    height: 6.3rem;
-    color: #1e213e;
-    transition: color .15s ease-in; }
-    .slider__input[type="radio"] {
-      /* Hide the browser's default radio button */ }
-      .slider__input[type="radio"]:not(:checked), .slider__input[type="radio"]:checked {
-        display: none; }
-  .slider__input[type="radio"]:checked + .slider__label {
-    background-color: #f87272;
-    z-index: 5;
-    transition: transform 600ms cubic-bezier(0.02, 0.94, 0.09, 0.97), background-color 300ms cubic-bezier(0.17, 0.67, 0.14, 1.03);
-    transform: translate3d(1rem, 0, 0); }
-  .slider__input[type="pomodoro-select"]:checked ~ .slider__indicator {
-    transform: translateX(0); }
-  .slider__input[type="short-break-select"]:checked ~ .slider__indicator {
-    transform: translateX(100%); }
-  .slider__input[type="long-break-select"]:checked ~ .slider__indicator {
-    transform: translateX(200%); }
+  .slider__input[type="radio"] {
+    /* Hide  default radio button */ }
+    .slider__input[type="radio"]:not(:checked), .slider__input[type="radio"]:checked {
+      display: none; }
   .slider__label {
     width: 100%;
     height: 75%;
@@ -201,12 +162,28 @@ button.btn-option:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     transition: color 200ms ease-out;
-    z-index: 4; }
-    .slider__label:hover {
-      background-color: #1e213e;
-      color: white; }
+    z-index: 4;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+    letter-spacing: 0;
+    text-align: left; }
+  .slider__input[type="radio"]:checked + .slider__label {
+    opacity: 1;
+    color: #161932;
+    z-index: 5;
+    transition: transform 600ms cubic-bezier(0.02, 0.94, 0.09, 0.97), background-color 300ms cubic-bezier(0.17, 0.67, 0.14, 1.03); }
+  .slider__input[type="radio"]:not(:checked) + .slider__label {
+    opacity: .6;
+    color: rgba(255, 255, 255, 0.6);
+    background-color: transparent; }
+  .slider__input[value="pomodoro-option"]:checked ~ .slider__indicator {
+    transform: translateX(0); }
+  .slider__input[value="short-break-option"]:checked ~ .slider__indicator {
+    transform: translateX(100%); }
+  .slider__input[value="long-break-option"]:checked ~ .slider__indicator {
+    transform: translateX(200%); }
   .slider__indicator {
     position: absolute;
     display: flex;
@@ -217,7 +194,7 @@ button.btn-option:hover {
     width: 33%;
     transition: left 0.1s ease-out;
     height: 5.3rem;
-    top: -.5rem;
+    top: 1rem;
     left: 0;
     border-radius: 3.15rem; }
 
@@ -313,6 +290,10 @@ button.btn-option:hover {
         width: 0;
         appearance: none;
         -webkit-appearance: none; }
+        .settings__section--options-font input[type="radio"].active-font + label, .settings__section--options-color input[type="radio"].active-font + label {
+          background-color: #161932;
+          color: white;
+          opacity: 1; }
       .settings__section--options-font label, .settings__section--options-color label {
         height: 4rem;
         width: 4rem;
@@ -380,18 +361,26 @@ button.btn-option:hover {
     background-color: #161932;
     top: 4rem; }
   .timer__current-time {
-    font-size: 2rem;
+    font-size: 10rem;
     font-weight: 700;
-    line-height: 2.5rem;
+    line-height: 12rem;
+    letter-spacing: -.5rem;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 12rem;
+    letter-spacing: -.5rem;
     text-align: left;
     font-size: 5rem;
     line-height: 6.5rem;
     margin: 5px 1.6rem; }
-    .timer__current-time--status {
-      font-size: 1.6rem;
-      line-height: 2rem;
-      letter-spacing: 0.9rem;
-      text-transform: uppercase; }
+  .timer__current-status {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2rem;
+    letter-spacing: 1.5rem;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 1rem; }
 
 .footer {
   height: 5rem;
@@ -399,20 +388,20 @@ button.btn-option:hover {
   .footer__attribution {
     color: #d6dfff;
     font-size: .75rem;
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.5rem;
-    letter-spacing: 4.2px;
-    text-align: justify;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+    letter-spacing: 0;
+    text-align: left;
     margin: .5rem;
     text-align: center;
     letter-spacing: normal; }
     .footer__attribution a {
-      font-size: 1.25rem;
-      font-weight: 400;
-      line-height: 1.5rem;
-      letter-spacing: 4.2px;
-      text-align: justify;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.8rem;
+      letter-spacing: 0;
+      text-align: left;
       color: #d6dfff;
       letter-spacing: normal; }
 
@@ -430,17 +419,13 @@ button.btn-option:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.5rem;
-  letter-spacing: 4.2px;
-  text-align: justify; }
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.8rem;
+  letter-spacing: 0;
+  text-align: left; }
 
 .info__title {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 2.5rem;
-  text-align: left;
   font-size: 1.75rem; }
 
 .info__details {
@@ -504,8 +489,8 @@ main, .theme-roboto
 footer {
   font-family: "Roboto Slab", "serif"; }
 
-.theme-kumbh header, .theme-kumbh
-main, .theme-kumbh
+.theme-sans header, .theme-sans
+main, .theme-sans
 footer {
   font-family: "Kumbh Sans", "sans-serif"; }
 
@@ -526,30 +511,30 @@ footer { }
 main, .theme-orchid
 footer { }
 
-header .slider__input[type="radio"]:checked + .slider__label.accent, header .accent,
-main .slider__input[type="radio"]:checked + .slider__label.accent,
+header .slider__input[type="radio"]:checked + .slider__label, header .accent,
+main .slider__input[type="radio"]:checked + .slider__label,
 main .accent,
-footer .slider__input[type="radio"]:checked + .slider__label.accent,
+footer .slider__input[type="radio"]:checked + .slider__label,
 footer .accent {
   transition: color 0.1s, border-color 0.1s, background-color 0.1s; }
-  .theme-peach header .slider__input[type="radio"]:checked + .slider__label.accent, .theme-peach header .accent, .theme-peach
-  main .slider__input[type="radio"]:checked + .slider__label.accent, .theme-peach
+  .theme-peach header .slider__input[type="radio"]:checked + .slider__label, .theme-peach header .accent, .theme-peach
+  main .slider__input[type="radio"]:checked + .slider__label, .theme-peach
   main .accent, .theme-peach
-  footer .slider__input[type="radio"]:checked + .slider__label.accent, .theme-peach
+  footer .slider__input[type="radio"]:checked + .slider__label, .theme-peach
   footer .accent {
     stroke: #f87272;
     background-color: #f87272; }
-  .theme-aqua header .slider__input[type="radio"]:checked + .slider__label.accent, .theme-aqua header .accent, .theme-aqua
-  main .slider__input[type="radio"]:checked + .slider__label.accent, .theme-aqua
+  .theme-aqua header .slider__input[type="radio"]:checked + .slider__label, .theme-aqua header .accent, .theme-aqua
+  main .slider__input[type="radio"]:checked + .slider__label, .theme-aqua
   main .accent, .theme-aqua
-  footer .slider__input[type="radio"]:checked + .slider__label.accent, .theme-aqua
+  footer .slider__input[type="radio"]:checked + .slider__label, .theme-aqua
   footer .accent {
     stroke: #72f4f8;
     background-color: #72f4f8; }
-  .theme-orchid header .slider__input[type="radio"]:checked + .slider__label.accent, .theme-orchid header .accent, .theme-orchid
-  main .slider__input[type="radio"]:checked + .slider__label.accent, .theme-orchid
+  .theme-orchid header .slider__input[type="radio"]:checked + .slider__label, .theme-orchid header .accent, .theme-orchid
+  main .slider__input[type="radio"]:checked + .slider__label, .theme-orchid
   main .accent, .theme-orchid
-  footer .slider__input[type="radio"]:checked + .slider__label.accent, .theme-orchid
+  footer .slider__input[type="radio"]:checked + .slider__label, .theme-orchid
   footer .accent {
     stroke: #d882f8;
     background-color: #d882f8; }

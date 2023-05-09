@@ -15,8 +15,7 @@
   <title>Frontend Mentor | Pomodoro app</title>
 </head>
 
-<body class="theme-space theme-orchid"
-      id="body">
+<body id="body">
   <header class="header">
     <img src="/assets/logo.svg"
          class="header__logo"
@@ -60,13 +59,13 @@
         <fieldset class="slider__container">
           <legend></legend>
           <input type="radio"
-                 class="slider__input"
+                 class="slider__input accent"
                  name="timer-option"
                  value="pomodoro"
                  id="pomodoro-option"
                  checked>
           <label for="pomodoro-option"
-                 class="slider__label accent">pomodoro</label>
+                 class="slider__label">pomodoro</label>
 
           <input type="radio"
                  class="slider__input"
@@ -89,14 +88,15 @@
         </fieldset>
       </form>
 
-
+ <section class="visual" id="visual"></section>
+        
 
       <!-- Timer -->
       <section class="timer">
         <div class="timer__ring">
           <div class="timer__ring--outer"> </div>
           <div class="timer__ring--inner"
-               id="progress"></div>
+              id="progress"></div>
           <!-- Progress-->
           <svg class="timer__ring--progress"
                width="30rem"
@@ -228,21 +228,21 @@
             <h4 class="settings__section--title">Font</h4>
             <div class="settings__section--options-font">
               <input type="radio"
-                     id="font-kumbh"
-                     value="theme-kumbh"
-                     name="fontOptions">
-              <label class="options font-kumbh"
-                     for="font-kumbh">Aa</label>
+                     id="font-sans"
+                     value="theme-sans"
+                     name="font-options">
+              <label class="options font-sans"
+                     for="font-sans">Aa</label>
               <input type="radio"
                      id="font-roboto"
                      value="theme-roboto"
-                     name="fontOptions">
+                     name="font-options">
               <label class="options font-roboto"
                      for="font-roboto">Aa</label>
               <input type="radio"
                      id="font-space"
                      value="theme-space"
-                     name="fontOptions">
+                     name="font-options">
               <label class="options font-space"
                      for="font-space">Aa</label>
 
@@ -258,19 +258,19 @@
               <input type="radio"
                      id="color-peach"
                      value="theme-peach"
-                     name="colorOptions">
+                     name="color-options">
               <label class="options color-peach"
                      for="color-peach">&nbsp;</label>
               <input type="radio"
                      id="color-aqua"
                      value="theme-aqua"
-                     name="colorOptions">
+                     name="color-options">
               <label class="options color-aqua"
                      for="color-aqua">&nbsp;</label>
               <input type="radio"
                      id="color-orchid"
                      value="theme-orchid"
-                     name="colorOptions">
+                     name="color-options">
               <label class="options color-orchid"
                      for="color-orchid">&nbsp;</label>
             </div>

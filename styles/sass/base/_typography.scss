@@ -1,69 +1,90 @@
-
 body {
-  // font-family: 'Kumbh Sans', sans-serif;
-  font-size: $font-size-default;
-  font-weight: $font-weight-default;
+  // font-size: $font-size-default;
+  // font-weight: $font-weight-default;
+  // letter-spacing: $letter-spacing-default;
   color: $transparent-blue;
   background-color: $black-market;
   @include flex(column, space-evenly, center);
-
-}
-
-h4 {
-  font-size: 1.2rem;
-  line-height: 1.6rem;
-  letter-spacing: 0.313rem;
-  text-transform: uppercase;
+  // text-align: left;
 }
 
 
-
-@mixin heading-primary {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 2.5rem;
+@mixin heading-extra-large {
+  font-size: 10rem;
+  font-weight: $font-weight-default;
+  line-height: 12rem;
+  letter-spacing: -.5rem;
   text-align: left;
 }
 
-@mixin heading-secondary {
-  font-size: 1.6rem;
-  line-height: 2rem;
-  letter-spacing: 0.9rem;
-  text-transform: uppercase;
+@mixin heading-extra-large-mobile {
+  @include heading-extra-large;
+  font-size: 1rem;
+  line-height: 12rem;
+  letter-spacing: -.5rem;
+  text-align: left;
 }
 
-@mixin heading-tertiary {
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.5rem;
+@mixin heading-large {
+  font-size: 2.8rem;
+  font-weight: $font-weight-default;
+  line-height: 3.4rem;
   letter-spacing: 0px;
+  text-align: center;
+}
+
+
+@mixin heading-large-mobile {
+  @include heading-large;
+  font-size: 2.4rem;
+  line-height: 3rem;
+}
+
+@mixin heading-medium {
+  font-size: 1.6rem;
+  font-weight: $font-weight-default;
+  line-height: 2rem;
+  letter-spacing: 1.5rem;
   text-align: left;
-  color: hsla(234, 35%, 18%, 0.4);
+  text-transform: uppercase;
+  // color: hsla(234, 35%, 18%, 0.4);
 }
 
-
-
-
-@mixin body-primary-text {
-
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.5rem;
-  letter-spacing: 4.2px;
-  text-align: justify;
+@mixin heading-medium-mobile {
+  @include heading-medium;
+  font-size: 1rem;
 
 }
 
-@mixin body-secondary-text {
+@mixin heading-small {
+  font-size: 1.3rem;
+  font-weight: $font-weight-default;
+  line-height: 1.6rem;
+  letter-spacing: .5rem;
+  text-align: left;
+  text-transform: uppercase;
+  // color: hsla(234, 35%, 18%, 0.4);
+}
 
-  font-size: 1.1rem;
-  font-weight: 700;
+@mixin heading-small-mobile {
+  @include heading-small;
+  font-size: 1rem;
+}
+
+@mixin body-text-primary {
+  font-size: 1.4rem;
+  font-weight: $font-weight-default;
+  line-height: 1.8rem;
+  letter-spacing: 0;
+  // opacity: .6;
+  text-align: left;
+}
+
+@mixin body-text-secondary {
+  @include body-text-primary;
+  font-size: 1.2rem;
   line-height: 1.4rem;
-  letter-spacing: 4.2px;
+  // opacity: .4;
   text-align: center;
 
 }
-
-// h1{
-//   @include heading-primary;
-// }

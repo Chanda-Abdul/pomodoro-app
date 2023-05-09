@@ -4,7 +4,7 @@
 
 $themes: (
     roboto: (fontFamily: "Roboto Slab", fallbackFont: 'serif'),
-    kumbh: (fontFamily: "Kumbh Sans", fallbackFont: 'sans-serif'),
+    sans: (fontFamily: "Kumbh Sans", fallbackFont: 'sans-serif'),
     space: (fontFamily: "Space Mono", fallbackFont: 'monospace'),
 
     peach: (accentColor: hsl(0, 91%, 71%),
@@ -64,7 +64,9 @@ footer {
 
     // }
 
-    .slider__input[type="radio"]:checked + .slider__label.accent,  .accent{
+    // __input[type="radio"]:checked+&__label
+
+    .slider__input[type="radio"]:checked + .slider__label,  .accent{
 
         transition: color 0.1s, border-color 0.1s, background-color 0.1s;
 

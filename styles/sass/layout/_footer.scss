@@ -6,13 +6,13 @@
 	&__attribution {
 		color: $transparent-blue;
 		font-size: .75rem;
-		@include body-primary-text;
+		@include body-text-primary;
 		margin: .5rem;
 		text-align: center;
 		letter-spacing: normal;
 
 		a {
-			@include body-primary-text;
+			@include body-text-primary;
 			color: $transparent-blue;
 			letter-spacing: normal;
 		
