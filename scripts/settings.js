@@ -28,7 +28,7 @@ const setInitialStyles = () => {
 const openSettings = () => {
   modal.classList.remove('hidden');
 
-  for (const font of font-options) {
+  for (const font of fontOptions) {
    
     if (font.value === selectedFont) {
     
@@ -41,7 +41,7 @@ fontButton.classList.add('active-font')
   // body.classList.add(selectedFont);
 
 
-  for (const color of color-options) {
+  for (const color of colorOptions) {
     // console.log(color)
     if (color.checked) {
       // console.log(color)
