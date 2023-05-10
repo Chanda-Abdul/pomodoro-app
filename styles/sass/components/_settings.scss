@@ -3,8 +3,6 @@
 }
 
 .settings {
-
-
   transition: all .4s .2s;
 
   &__modal {
@@ -48,8 +46,6 @@
       font-size: 2rem;
       line-height: 25px;
       padding: 2.4rem;
-      // padding-top: 2.4rem;
-      // padding-top: 1.5rem;
       border-bottom: 1px solid $diamonds-in-the-sky;
     }
 
@@ -61,11 +57,6 @@
 
       & section {
         width: 100%;
-        // margin: 1.5rem 0;
-
-        // &--title {
-        //   margin-bottom: 1.8rem;
-        // }
         & h4 {
           margin: 1.5rem;
         }
@@ -160,7 +151,7 @@
           color: $black-market;
           opacity: 0.73;
           @include flex(row, center, center);
-          // height: 4.0rem;
+          // height: 4.0;
           width: 15.2rem;
         }
 

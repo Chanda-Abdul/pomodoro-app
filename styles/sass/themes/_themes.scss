@@ -1,25 +1,15 @@
-/*
- * Theme definitions
- */
-
+/* Theme definitions */
 $themes: (
-    roboto: (fontFamily: "Roboto Slab", fallbackFont: 'serif'),
-    sans: (fontFamily: "Kumbh Sans", fallbackFont: 'sans-serif'),
-    space: (fontFamily: "Space Mono", fallbackFont: 'monospace'),
-
-    peach: (accentColor: hsl(0, 91%, 71%),
-    ),
-    aqua: (accentColor: hsl(182, 91%, 71%)),
-    orchid: (accentColor: hsl(284, 89%, 74%)),
-
-
+  roboto: (fontFamily: $font-family-roboto-slab),
+    sans: (fontFamily:$font-family-kumbh-sans),
+    space: (fontFamily: $font-family-space-mono),
+    peach: (accentColor: $georgia-peach),
+    aqua: (accentColor: $robins-egg-blue),
+    orchid: (accentColor: $electric-orchid),
 );
 
-/*
-Implementation of themes
-   */
+/* Implementation of themes */
 @mixin themify($themes) {
-
     @each $theme,
     $map in $themes {
         .theme-#{$theme} & {
@@ -45,28 +35,16 @@ Implementation of themes
 header,
 main,
 footer {
-    
+
     @include themify($themes) {
-        font-family: themed('fontFamily'), themed('fallbackFont');
-
-
-        //   background-color: themed('backgroundColor');  
+        font-family: themed('fontFamily');
+ 
     }
 
-    // .timer__ring {
+ 
 
-        
-    //     @include themify($themes) {
-    //         accentColor: (themed('accentColor'))
-    //     }
-        
-    //     box-shadow: 6px 6px 10px -1px, rgba(accentColor, .15), -6px -6px 10px -1px rgba($diamonds-in-the-sky, .7);
-
-    // }
-
-    // __input[type="radio"]:checked+&__label
-
-    .slider__input[type="radio"]:checked + .slider__label,  .accent{
+    .slider__input[type="radio"]:checked+.slider__label,
+    .accent {
 
         transition: color 0.1s, border-color 0.1s, background-color 0.1s;
 

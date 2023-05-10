@@ -2,30 +2,26 @@ $georgia-peach: hsl(0, 91%, 71%);
 $robins-egg-blue: hsl(182, 91%, 71%);
 $electric-orchid: hsl(284, 89%, 74%);
 $transparent-blue: hsl(227, 100%, 92%);
-$black-market: hsl(235, 35%, 18%);
+$black-market: #1e213e;
 $baby-powder: hsl(0, 0%, 100%);
 $distant-horizon: hsl(229, 52%, 96%);
-$dark-knight: hsl(234, 39%, 14%);
-$quill-tip: hsl(235, 32%, 27%);
-$shadow-dancer: hsl(234, 45%, 13%);
-$liberty-blue: hsl(234, 50%, 11%);
+$dark-knight: #161932;
+$quill-tip: #2f325b;
+$shadow-dancer: #121530;
+$liberty-blue: #0e112a;
 $diamonds-in-the-sky: hsl(0, 3%, 89%);
+
+
+$font-family-kumbh-sans: "Kumbh Sans",'sans-serif';
+$font-family-roboto-slab:"Roboto Slab", 'serif';
+$font-family-space-mono:"Space Mono", 'monospace';
 
 $font-size-default: 1.4rem;
 $font-weight-default: 700;
 $line-height-default: 1.7rem;
 $letter-spacing-default: 1.3125rem;
 
+$border-radius-default: 3.15rem;
 
-
-.color-peach{
-  background-color: $georgia-peach;
-}
-
-.color-aqua {
-  background-color: $robins-egg-blue;
-}
-
-.color-orchid{
-  background-color: $electric-orchid;
-}
+$circle-width-mobile: 30rem;
+$circle-padding-mobile: 1.6rem;

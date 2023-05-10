@@ -1,14 +1,5 @@
-@import url(https://fonts.bunny.net/css?family=kumbh-sans:400,700|roboto-slab:400,700|space-mono:400,700);
-.color-peach {
-  background-color: #f87272; }
-
-.color-aqua {
-  background-color: #72f4f8; }
-
-.color-orchid {
-  background-color: #d882f8; }
-
 /* Modal  Animation Section */
+@import url("https://fonts.bunny.net/css?family=kumbh-sans:400,700|roboto-slab:400,700|space-mono:400,700");
 @keyframes animatemodal {
   from {
     top: -50rem;
@@ -59,12 +50,11 @@
 
 html {
   font-size: 62.5%;
-  /* set 1rem  to 10px */ }
+  /* set 1rem to 10px */ }
 
 body {
   box-sizing: border-box;
-  min-height: 100vh;
-  text-align: center; }
+  min-height: 100vh; }
 
 .mobile-only {
   display: contents; }
@@ -73,21 +63,22 @@ body {
   display: none; }
 
 input,
-label, a {
+label,
+a {
   cursor: pointer; }
 
 body {
+  font-family: "Kumbh Sans", "sans-serif";
   color: #d6dfff;
   background-color: #1e213e;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center; }
+  align-items: center;
+  text-align: center; }
 
-/* Buttons */
 button,
 .btn {
-  background-color: #f87272;
   color: white;
   font-size: 1.6rem;
   line-height: 2rem;
@@ -132,9 +123,8 @@ button.btn-option:hover {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  margin: 3rem auto;
-  width: 35.7rem;
-  height: 7.3rem;
+  width: 32.7rem;
+  height: 6.3rem;
   background: #161932;
   border-radius: 3.15rem; }
   .slider__container {
@@ -164,11 +154,10 @@ button.btn-option:hover {
     align-items: center;
     transition: color 200ms ease-out;
     z-index: 4;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    line-height: 1.8rem;
-    letter-spacing: 0;
-    text-align: left; }
+    line-height: 1.5rem;
+    letter-spacing: 0; }
   .slider__input[type="radio"]:checked + .slider__label {
     opacity: 1;
     color: #161932;
@@ -316,63 +305,58 @@ button.btn-option:hover {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 3rem; }
-  .timer input {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 80px; }
+  margin-top: 3rem;
+  padding: 3.5rem; }
   .timer__ring {
+    position: relative;
+    top: 0;
+    left: 0;
     width: 30rem;
     height: 30rem;
     border-radius: 50%;
     padding: 3.5rem;
-    box-shadow: 6px 6px 10px -1px rgba(22, 25, 50, 0.15), -6px -6px 10px -1px rgba(228, 226, 226, 0.7); }
-    .timer__ring--inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 23rem;
-      height: 23rem;
-      border-radius: 50%;
-      box-shadow: inset 4px 4px 6px -1px rgba(22, 25, 50, 0.15), inset -4px -4px 6px -1px rgba(228, 226, 226, 0.7), -0.5px -0.5px 0px #e4e2e2, 0.5px 0.5px 0px #161932, 0px 12px 10px -10px rgba(22, 25, 50, 0.05); }
+    background: linear-gradient(315deg, #2f325b 0%, #0e112a 100%);
+    box-shadow: -5rem -5rem 10rem #2f325b, 5rem 5rem 10rem #121530; }
     .timer__ring--progress {
       position: absolute;
-      top: .5rem;
-      z-index: 4;
-      left: calc(50% - 15rem); }
-      .timer__ring--progress-circle {
+      top: 0;
+      left: 0;
+      z-index: 7; }
+      .timer__ring--progress circle {
+        position: absolute;
+        z-index: 9;
         transition: 0.35s stroke-dashoffset;
         /* axis compensation */
         transform: rotate(-90deg);
         transform-origin: 50% 50%; }
   .timer__details {
     position: absolute;
-    z-index: 6;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4rem;
-    height: 228px;
-    width: 228px;
+    height: 26.7rem;
+    width: 26.7rem;
     border-radius: 50%;
     background-color: #161932;
-    top: 4rem; }
-  .timer__current-time {
-    font-size: 10rem;
-    font-weight: 700;
-    line-height: 12rem;
-    letter-spacing: -.5rem;
-    text-align: left;
-    font-size: 1rem;
-    line-height: 12rem;
-    letter-spacing: -.5rem;
-    text-align: left;
-    font-size: 5rem;
-    line-height: 6.5rem;
-    margin: 5px 1.6rem; }
+    top: 1.6rem;
+    left: 1.6rem; }
+    .timer__details--current-time {
+      position: absolute;
+      z-index: 8;
+      font-size: 10rem;
+      font-weight: 700;
+      line-height: 12rem;
+      letter-spacing: -.5rem;
+      text-align: left;
+      font-size: 8rem;
+      line-height: 9.9rem;
+      letter-spacing: -.4rem;
+      text-align: center; }
+    .timer__details--btn {
+      position: absolute;
+      top: 17.8rem;
+      z-index: 11; }
   .timer__current-status {
     font-size: 1.6rem;
     font-weight: 700;
@@ -388,30 +372,28 @@ button.btn-option:hover {
   .footer__attribution {
     color: #d6dfff;
     font-size: .75rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    line-height: 1.8rem;
+    line-height: 1.5rem;
     letter-spacing: 0;
-    text-align: left;
     margin: .5rem;
-    text-align: center;
-    letter-spacing: normal; }
+    text-align: center; }
     .footer__attribution a {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      line-height: 1.8rem;
+      line-height: 1.5rem;
       letter-spacing: 0;
-      text-align: left;
-      color: #d6dfff;
-      letter-spacing: normal; }
+      color: #d6dfff; }
 
 .header {
-  height: 5rem;
-  margin: 1rem auto;
+  margin: 3.2rem auto 3.9rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center; }
+  .header__logo {
+    width: 11.8rem;
+    height: 3rem; }
 
 .container {
   padding: 2rem;
@@ -419,11 +401,10 @@ button.btn-option:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  line-height: 1.8rem;
-  letter-spacing: 0;
-  text-align: left; }
+  line-height: 1.5rem;
+  letter-spacing: 0; }
 
 .info__title {
   font-size: 1.75rem; }
@@ -478,12 +459,8 @@ button.btn-option:hover {
     margin-bottom: .75rem;
     font-size: 1.25rem; }
 
-/*
- * Theme definitions
- */
-/*
-Implementation of themes
-   */
+/* Theme definitions */
+/* Implementation of themes */
 .theme-roboto header, .theme-roboto
 main, .theme-roboto
 footer {
@@ -499,39 +476,31 @@ main, .theme-space
 footer {
   font-family: "Space Mono", "monospace"; }
 
-.theme-peach header, .theme-peach
-main, .theme-peach
-footer { }
-
-.theme-aqua header, .theme-aqua
-main, .theme-aqua
-footer { }
-
-.theme-orchid header, .theme-orchid
-main, .theme-orchid
-footer { }
-
-header .slider__input[type="radio"]:checked + .slider__label, header .accent,
+header .slider__input[type="radio"]:checked + .slider__label,
+header .accent,
 main .slider__input[type="radio"]:checked + .slider__label,
 main .accent,
 footer .slider__input[type="radio"]:checked + .slider__label,
 footer .accent {
   transition: color 0.1s, border-color 0.1s, background-color 0.1s; }
-  .theme-peach header .slider__input[type="radio"]:checked + .slider__label, .theme-peach header .accent, .theme-peach
+  .theme-peach header .slider__input[type="radio"]:checked + .slider__label, .theme-peach
+  header .accent, .theme-peach
   main .slider__input[type="radio"]:checked + .slider__label, .theme-peach
   main .accent, .theme-peach
   footer .slider__input[type="radio"]:checked + .slider__label, .theme-peach
   footer .accent {
     stroke: #f87272;
     background-color: #f87272; }
-  .theme-aqua header .slider__input[type="radio"]:checked + .slider__label, .theme-aqua header .accent, .theme-aqua
+  .theme-aqua header .slider__input[type="radio"]:checked + .slider__label, .theme-aqua
+  header .accent, .theme-aqua
   main .slider__input[type="radio"]:checked + .slider__label, .theme-aqua
   main .accent, .theme-aqua
   footer .slider__input[type="radio"]:checked + .slider__label, .theme-aqua
   footer .accent {
     stroke: #72f4f8;
     background-color: #72f4f8; }
-  .theme-orchid header .slider__input[type="radio"]:checked + .slider__label, .theme-orchid header .accent, .theme-orchid
+  .theme-orchid header .slider__input[type="radio"]:checked + .slider__label, .theme-orchid
+  header .accent, .theme-orchid
   main .slider__input[type="radio"]:checked + .slider__label, .theme-orchid
   main .accent, .theme-orchid
   footer .slider__input[type="radio"]:checked + .slider__label, .theme-orchid

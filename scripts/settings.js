@@ -7,6 +7,32 @@ const body = document.getElementById('body');
 const fontOptions = document.querySelectorAll('input[name="font-options"]');
 const colorOptions = document.querySelectorAll('input[name="color-options"]');
 
+function getSettings() {
+  /* Set Timer Type & Duration */
+  numberOfPomodoros = document.getElementById('pomodoro');
+  shortBreakLength = document.getElementById('short-break');
+  longBreakLength = document.getElementById('long-break');
+
+  timer.settings.pomodorosRemainingUntilLongBreak = +numberOfPomodoros.value;
+  timer.settings.shortBreak = +shortBreakLength.value;
+  timer.settings.longBreak = +longBreakLength.value;
+
+  /* Set Font */
+  for (const font of fontOptions) {
+    if (font.checked) {
+      selectedFont = font.value;
+    }
+  }
+
+  /* Set Accent Color */
+  for (const color of colorOptions) {
+    if (color.checked) {
+      selectedColor = color.value;
+    }
+  }
+  updateRemainingTime();
+  updateTimerUI();
+}
 
 let selectedFont = 'theme-sans';
 let selectedColor = 'theme-peach';
@@ -22,33 +48,23 @@ const setInitialStyles = () => {
   body.classList.add(selectedColor);
 };
 
-// console.log(body, font-options,  color-options );
-
 /* Open Settings */
 const openSettings = () => {
   modal.classList.remove('hidden');
 
   for (const font of fontOptions) {
-   
     if (font.value === selectedFont) {
-    
-const fontButton = document.getElementById(font.id);
-fontButton.classList.add('active-font')
-  // console.log(fontButton)      
-  // selectedFont = font.value;
+      const fontButton = document.getElementById(font.id);
+      fontButton.classList.add('active-font');
     }
   }
-  // body.classList.add(selectedFont);
-
 
   for (const color of colorOptions) {
-    // console.log(color)
-    if (color.checked) {
-      // console.log(color)
-      // selectedColor = color.value;
+    if (color.value === selectedColor) {
+      const colorButton = document.getElementById(color.id);
+      colorButton.classList.add('active-color');
     }
   }
-  // body.classList.add(selectedColor);
 };
 
 openSettingsBtn.addEventListener('click', openSettings);
@@ -69,38 +85,12 @@ document.addEventListener('keydown', function (e) {
 
 /* Apply Settings */
 function applySettings() {
+  getSettings();
   body.className = '';
-
- 
-  for (const font of fontOptions) {
-    if (font.checked) {
-      selectedFont = font.value;
-    }
-  }
   body.classList.add(selectedFont);
-
-
-  for (const color of colorOptions) {
-    // console.log(color)
-    if (color.checked) {
-      selectedColor = color.value;
-    }
-  }
   body.classList.add(selectedColor);
-
   closeSettings();
 }
-
-/* Set Timer Type & Duration */
-
-/* Set Timers */
-// TO-DO=> timer select functionality;
-
-/* TO-DO => update active color buttonOptions.innerHTML = '✔️'*/
-// function updateAccentColor(accentColor) {
-//   currentProgressRingColor = accentColor;
-//   currentAccentColor = accentColor;
-// }
 
 /* Set Light/Dark Theme */
 /* TO-DO => BONUS Light/Dark Theme functionality */

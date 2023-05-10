@@ -1,6 +1,9 @@
-.header{
-    height: 5rem;
-    margin: 1rem auto;
+.header {
+    margin: 3.2rem auto 3.9rem;
     @include flex(column, space-evenly, center);
 
+    &__logo {
+        width: 11.8rem;
+        height: 3rem;
+    }
 }

@@ -3,70 +3,57 @@
   @include flex(column, center, center);
   width: 100%;
   margin-top: 3rem;
-
-  input {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 80px;
-  }
+  padding: 3.5rem;
 
   &__ring {
-    width: 30rem;
-    height: 30rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: $circle-width-mobile;
+    height: $circle-width-mobile;
     border-radius: 50%;
     padding: 3.5rem;
-    box-shadow: 6px 6px 10px -1px rgba($dark-knight, .15), -6px -6px 10px -1px rgba($diamonds-in-the-sky, .7);
-
-    &--outer {}
-
-    &--inner {
-      @include flex(column, center, center);
-      width: 23rem;
-      height: 23rem;
-      border-radius: 50%;
-      box-shadow: inset 4px 4px 6px -1px rgba($dark-knight, .15), inset -4px -4px 6px -1px rgba($diamonds-in-the-sky, .7), -0.5px -0.5px 0px rgba($diamonds-in-the-sky, 1), 0.5px 0.5px 0px rgba($dark-knight, 1), -0px 12px 10px -10px rgba($dark-knight, 0.05);
-
-    }
+    background: linear-gradient(315deg, $quill-tip 0%, $liberty-blue 100%);
+    box-shadow: -5rem -5rem 10rem $quill-tip, 5rem 5rem 10rem $shadow-dancer;
 
     &--progress {
       position: absolute;
-      top: .5rem;
-      z-index: 4;
-      left: calc(50% - 15rem);
+      top: 0;
+      left: 0;
+      z-index: 7;
 
-      &-circle {
+      circle {
+        position: absolute;
+        z-index: 9;
         transition: 0.35s stroke-dashoffset;
         /* axis compensation */
         transform: rotate(-90deg);
         transform-origin: 50% 50%;
       }
     }
-
-
-
   }
-
 
   &__details {
     position: absolute;
-    z-index: 6;
     @include flex(column, center, center);
-    padding: 4rem;
-    height: 228px;
-    width: 228px;
+    height: 26.7rem;
+    width: 26.7rem;
     border-radius: 50%;
     background-color: $dark-knight;
-    top: 4rem;
-  }
+    top: $circle-padding-mobile;
+    left: $circle-padding-mobile;
 
-  &__current-time {
-    @include heading-extra-large-mobile;
-    font-size: 5rem;
-    line-height: 6.5rem;
-    margin: 5px 1.6rem;
+    &--current-time {
+      position: absolute;
+      z-index: 8;
+      @include heading-extra-large-mobile;
+    }
 
-
+    &--btn {
+      position: absolute;
+      top: 17.8rem;
+      z-index: 11;
+    }
   }
 
   &__current-status {

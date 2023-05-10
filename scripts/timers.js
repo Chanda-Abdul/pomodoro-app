@@ -13,6 +13,7 @@ const timer = {
     nextStatus: 'pause' || 'start' || 'restart' || 'default',
   },
 };
+
 let { currentTimer } = timer;
 
 let remainingTime = {
@@ -35,7 +36,17 @@ let interval;
 
 function updateTimerOption(option) {
   timer.currentTimer = option;
+  updateRemainingTime();
+}
 
+function handleTimerOption(e) {
+  updateTimerOption(e.target.value);
+
+  for (const timerOption of timerOptions) {
+    timerOption.checked = timerOption.value === timer.currentTimer;
+  }
+}
+function updateRemainingTime(){
   remainingTime = {
     timerLength: timer.settings[timer.currentTimer] * 60,
     timeRemaining: timer.settings[timer.currentTimer] * 60,
@@ -43,15 +54,9 @@ function updateTimerOption(option) {
     seconds: 0,
     progressPercentage: 1,
   };
+
   updateTimerStatus('default', 'start');
   clearAndUpdate();
-}
-function handleTimerOption(e) {
-  updateTimerOption(e.target.value);
-
-  for (const timerOption of timerOptions) {
-    timerOption.checked = timerOption.value === timer.currentTimer;
-  }
 }
 
 function startTimer() {
@@ -149,7 +154,7 @@ function updateTimerUI() {
 const circle = document.querySelector('circle');
 
 const radius = circle.r.baseVal.value;
-
+console.log(radius, circle);
 const circumference = radius * 2 * Math.PI;
 circle.style.strokeDasharray = `${
   circumference * (1 + 0.99)

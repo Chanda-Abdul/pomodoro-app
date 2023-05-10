@@ -4,27 +4,16 @@
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-
-}
-
-
-html,
-body {
-    // 
-    // width: 100vw;
 }
 
 html {
     font-size: 62.5%;
-    /* set 1rem  to 10px */
+    /* set 1rem to 10px */
 }
-
-
 
 body {
     box-sizing: border-box;
     min-height: 100vh;
-    text-align: center;
 }
 
 
@@ -37,6 +26,7 @@ body {
 }
 
 input,
-label,a {
+label,
+a {
     cursor: pointer;
 }

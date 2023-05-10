@@ -25,11 +25,10 @@ node_modules
 *.xd
 
 # Avoid your project being littered with annoying .DS_Store files!
+###############################################
+###############################################
 .DS_Store
 .prettierignore
-
-
-.DS_Store
 dist
 dist-ssr
 coverage

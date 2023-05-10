@@ -23,16 +23,16 @@
   </header>
   <main>
 
-    <div class="container">
-      <section class="info">
+    <div class="container theme-sans theme-peach">
+      <!-- <section class="info">
         <h1 class="info__title">
           Beat procrastination and improve your focus one pomodoro at a time
         </h1>
         <i class="ph ph-info"
            id="info__icon"></i>
         <!-- TO-DO (Bonus)=> add info icon hover functionality -->
-        <!-- Info popup  -->
-        <!-- <dialog class="info__details"
+      <!-- Info popup  -->
+      <!-- <dialog class="info__details"
                 id="info__details">
           <div class="info__content"
                id="info__content">
@@ -50,8 +50,8 @@
             <a href="https://todoist.com/productivity-methods/pomodoro-technique"
                target="_blank">Learn more</a>
           </div>
-        </dialog> -->
-      </section>
+        </dialog> 
+      </section> -->
 
 
       <!-- Timer select  -->
@@ -88,15 +88,13 @@
         </fieldset>
       </form>
 
- <section class="visual" id="visual"></section>
-        
+      <section class="visual"
+               id="visual"></section>
+
 
       <!-- Timer -->
       <section class="timer">
         <div class="timer__ring">
-          <div class="timer__ring--outer"> </div>
-          <div class="timer__ring--inner"
-              id="progress"></div>
           <!-- Progress-->
           <svg class="timer__ring--progress"
                width="30rem"
@@ -104,20 +102,22 @@
                stroke-linecap="round">
             <circle class="timer__ring--progress-circle accent"
                     stroke=""
-                    stroke-width="20"
+                    stroke-width="10"
                     fill="transparent"
                     cx="150"
                     cy="150"
-                    r="13.25rem" />
+                    r="11.9rem" />
           </svg>
+
+
 
           <!-- Timer Counter -->
           <div class="timer__details">
-            <span class="timer__current-time"
+            <span class="timer__details--current-time"
                   id="current-time"></span>
 
             <!-- Status -->
-            <button class="btn btn-status"
+            <button class="timer__details--btn btn btn-status "
                     onclick="updateStatus()">
               <span class="timer__current-status"
                     id="timer__current-status">
@@ -130,10 +130,10 @@
     <button class="btn btn-settings">
       <img src="/assets/icon-settings.svg"
            alt="settings"></button>
+
     <!-- Settings Popup-->
     <div id="settings"
          class="settings__modal hidden">
-      <!-- <div class="settings__container"> -->
       <div class="settings__card">
         <div class="settings__card--title">
           <h2 class="heading-primary">Settings</h2>
@@ -281,9 +281,6 @@
       </div>
 
     </div>
-
-
-
   </main>
   <footer class="footer">
     <div class="footer__attribution">
@@ -299,9 +296,11 @@
 </body>
 
 
-<script defer
-        src="scripts/timers.js"></script>
-<script defer
-        src="scripts/settings.js"></script>
+<script type="text/javascript"
+        src="scripts/timers.js"
+        defer></script>
+<script type="text/javascript"
+        src="scripts/settings.js"
+        defer></script>
 
 </html>
