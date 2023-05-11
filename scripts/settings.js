@@ -1,5 +1,5 @@
-const modal = document.querySelector('.settings__modal');
-const openSettingsBtn = document.querySelector('.btn-settings');
+const modal = document.getElementById('settings');
+const openSettingsBtn = document.getElementById('btn-open');
 const closeSettingsBtn = document.querySelector('.btn-close');
 const applySettingsBtn = document.querySelector('.btn-apply');
 
@@ -49,23 +49,29 @@ const setInitialStyles = () => {
 };
 
 /* Open Settings */
-const openSettings = () => {
+function openSettings() {
   modal.classList.remove('hidden');
 
   for (const font of fontOptions) {
+    // TO-DO => add event listener
+    const fontButton = document.getElementById(font.id);
     if (font.value === selectedFont) {
-      const fontButton = document.getElementById(font.id);
       fontButton.classList.add('active-font');
+    } else {
+      fontButton.classList.remove('active-font');
     }
   }
 
   for (const color of colorOptions) {
+        // TO-DO => add event listener
+    const colorButton = document.getElementById(color.id);
     if (color.value === selectedColor) {
-      const colorButton = document.getElementById(color.id);
       colorButton.classList.add('active-color');
+    } else {
+      colorButton.classList.remove('active-color');
     }
   }
-};
+}
 
 openSettingsBtn.addEventListener('click', openSettings);
 

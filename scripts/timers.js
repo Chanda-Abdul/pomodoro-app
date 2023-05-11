@@ -46,7 +46,7 @@ function handleTimerOption(e) {
     timerOption.checked = timerOption.value === timer.currentTimer;
   }
 }
-function updateRemainingTime(){
+function updateRemainingTime() {
   remainingTime = {
     timerLength: timer.settings[timer.currentTimer] * 60,
     timeRemaining: timer.settings[timer.currentTimer] * 60,
@@ -86,7 +86,7 @@ function resetTimer() {
     : timer.currentTimer === 'pomodoro'
     ? (timer.currentTimer = 'shortBreak')
     : (timer.currentTimer = 'pomodoro');
-
+  // TO-DO => make sure toggle changes to next timer when time is up
   updateTimerOption(timer.currentTimer);
 }
 
@@ -166,3 +166,5 @@ function setProgress() {
     circumference * (1 + remainingTime.progressPercentage)
   }  ${circumference}`;
 }
+
+

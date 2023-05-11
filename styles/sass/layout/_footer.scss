@@ -1,18 +1,25 @@
 .footer {
-	
-	height: 5rem;
-	margin: 3rem auto 1rem auto;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 1rem;
+	// margin-top: 3rem ;
 
 	&__attribution {
 		color: $transparent-blue;
 		font-size: .75rem;
 		@include body-text-primary;
+		font-weight: 300;
 		margin: .5rem;
 		text-align: center;
 
 		a {
 			@include body-text-primary;
 			color: $transparent-blue;
+			font-weight: 500;
+			text-decoration: none;
 		}
 	}
 }

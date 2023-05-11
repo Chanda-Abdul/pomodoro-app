@@ -13,9 +13,13 @@ Your challenge is to build out this Pomodoro timer app and get it looking as clo
 You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
 
 Your users should be able to:
-<!-- TO-DO => review mobile styles -->
-<!-- TO-DO => review tablet styles -->
-<!-- TO-DO => review desktop styles -->
+- [ ] View the optimal layout for the interface depending on their device's screen size
+  - [x] Mobile-first, for viewports <b>< 600px</b>
+  <!-- TO-DO => review mobile styles -->
+  - [ ] Tablet(Portrait and Landscape), for viewports from <b>600px</b> to <b>1200px</b>
+ <!-- TO-DO => review tablet styles -->
+  - [ ] Desktop for viewports <b>< 1200px</b>
+  <!-- TO-DO => review desktop styles -->
 - [x] Set a pomodoro timer and short & long break timers
 - [x] Customize how long each timer runs for
 - [x] See a circular progress bar that updates every minute and represents how far through their timer they are
@@ -58,7 +62,9 @@ Your users should be able to:
 
 
 ### Continued development
-
+- Add Feedback, sound or visual, when time ends/changes
+- light/dark mode
+- info section
 
 ### Useful resources
 - [Theming Web Apps with SASS](https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1)

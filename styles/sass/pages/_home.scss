@@ -1,8 +1,8 @@
 .container {
     // height: 100%;
-    padding: 2rem;
+    // padding: 2rem;
     @include flex(column, space-between, center);
-    @include body-text-primary;
+    // @include body-text-primary;
 }
 
 .info {
@@ -49,8 +49,8 @@
         height: 0;
         width: 0;
 
-        background-color: $diamonds-in-the-sky;
-        color: $shadow-dancer;
+        background-color: $distant-horizon;
+        color: $black-market;
         padding: 3rem 2rem 3rem 3rem;
         opacity: 0;
         visibility: hidden;
@@ -77,7 +77,7 @@
         }
 
         ul li {
-            color: $shadow-dancer;
+            color: $black-market;
             margin-left: .75rem;
             margin-bottom: .75rem;
             font-size: 1.25rem;

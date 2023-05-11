@@ -17,9 +17,7 @@
 
 <body id="body">
   <header class="header">
-    <img src="/assets/logo.svg"
-         class="header__logo"
-         alt="logo">
+    <h1 class="header__logo">pomodoro</h1>
   </header>
   <main>
 
@@ -111,7 +109,7 @@
 
 
 
-          <!-- Timer Counter -->
+          <!-- Timer Countdown -->
           <div class="timer__details">
             <span class="timer__details--current-time"
                   id="current-time"></span>
@@ -127,7 +125,8 @@
         </div>
     </div>
     </section>
-    <button class="btn btn-settings">
+    <button class="btn btn-settings"
+            id="btn-open">
       <img src="/assets/icon-settings.svg"
            alt="settings"></button>
 
@@ -136,7 +135,7 @@
          class="settings__modal hidden">
       <div class="settings__card">
         <div class="settings__card--title">
-          <h2 class="heading-primary">Settings</h2>
+          <h2>Settings</h2>
           <button class="btn btn-close">
             <img src="/assets/icon-close.svg"
                  alt="icon-close"
@@ -147,7 +146,7 @@
 
         <div class="settings__card--content">
           <section class="settings__card--instructions">
-            <p class="font-primary"><b>Pomodoros</b> 🍅 are focused work sessions — with frequent short breaks to
+            <p><b>Pomodoros</b> 🍅 are focused work sessions — with frequent short breaks to
               promote
               sustained concentration and
               stave off mental fatigue.</p>
@@ -162,15 +161,13 @@
           </section>
 
 
-          <section class="settings__section">
+          <section class="settings__card--section">
 
-            <h4 class="settings__section--title">Time (minutes)</h4>
+            <h4 class="settings__card--section-title">Time (minutes)</h4>
             <form action=""
                   class="settings__form">
               <label for="pomodoro"
-                     class="settings__section--label-time">
-
-                pomodoro
+                     class="settings__section--label-time"> pomodoro
                 <select name="pomodoro"
                         id="pomodoro"
                         class="settings__section--select-time">
@@ -180,14 +177,11 @@
                   <option value="4">4 sessions</option>
                   <option value="5">5 sessions</option>
                   <option value="6">6 sessions</option>
-                  <option value="7">7 sessions</option>
-                  <option value="8">8 sessions</option>
                 </select>
               </label>
 
               <label for="short-break"
-                     class="settings__section--label-time">
-                <p class="body__font-secondary">short break</p>
+                     class="settings__section--label-time">short break
                 <select name="short-break"
                         id="short-break"
                         class="settings__section--select-time">
@@ -199,9 +193,7 @@
               </label>
               <label for="long-break"
                      class="settings__section--label-time">
-                <p class="body__font-secondary">long break</p>
-
-                <select name="long-break"
+                long break<select name="long-break"
                         id="long-break"
                         class="settings__section--select-time">
                   <option value="30">30 minutes</option>
@@ -225,8 +217,8 @@
 
           <!-- Select Font -->
           <section class="settings__section">
-            <h4 class="settings__section--title">Font</h4>
-            <div class="settings__section--options-font">
+            <h4 class="settings__card--section-title">Font</h4>
+            <div class="settings__options--font">
               <input type="radio"
                      id="font-sans"
                      value="theme-sans"
@@ -252,9 +244,8 @@
 
           <!-- Select Accent Color -->
           <section class="settings__section">
-            <h4 class="settings__section--title">Color</h4>
-            <div class="settings__section--options-color">
-
+            <h4 class="settings__card--section-title">Color</h4>
+            <div class="settings__options--color">
               <input type="radio"
                      id="color-peach"
                      value="theme-peach"
@@ -276,7 +267,7 @@
             </div>
           </section>
         </div>
-        <button class="btn btn-apply accent"
+        <button class="btn btn-apply"
                 onclick="applySettings()">Apply</button>
       </div>
 
