@@ -18,7 +18,7 @@
   }
 
   &__input[type="radio"] {
-    /* Hide  default radio button */
+    /* Hide default radio button */
     &:not(:checked),
     &:checked {
       display: none;

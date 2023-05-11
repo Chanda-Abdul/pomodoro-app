@@ -1,6 +1,6 @@
 /* Theme definitions */
 $themes: (
-  roboto: (fontFamily: $font-family-roboto-slab),
+    roboto: (fontFamily: $font-family-roboto-slab),
     sans: (fontFamily:$font-family-kumbh-sans),
     space: (fontFamily: $font-family-space-mono),
     peach: (accentColor: $georgia-peach),
@@ -10,6 +10,7 @@ $themes: (
 
 /* Implementation of themes */
 @mixin themify($themes) {
+
     @each $theme,
     $map in $themes {
         .theme-#{$theme} & {
@@ -38,10 +39,10 @@ footer {
 
     @include themify($themes) {
         font-family: themed('fontFamily');
- 
+
     }
 
- 
+
 
     .slider__input[type="radio"]:checked+.slider__label,
     .accent {

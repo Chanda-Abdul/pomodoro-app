@@ -4,10 +4,10 @@ button,
      color: $baby-powder;
      font-size: 1.6rem;
      line-height: 2rem;
-     font-weight: 700;
+     font-weight: $font-weight-display;
      text-align: center;
-     padding: 18px 23px;
-     border-radius: 26.5px;
+     padding: 1.8rem 2.3rem;
+     border-radius: 2.65rem;
      border: none;
  }
 
@@ -31,10 +31,6 @@ button,
      align-items: center;
      padding: 0;
  }
-
-
-
- 
 
  .btn-apply {
      position: absolute;

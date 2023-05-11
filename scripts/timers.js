@@ -14,8 +14,6 @@ const timer = {
   },
 };
 
-let { currentTimer } = timer;
-
 let remainingTime = {
   timerLength: timer.settings[timer.currentTimer] * 60,
   timeRemaining: timer.settings[timer.currentTimer] * 60,
@@ -24,19 +22,11 @@ let remainingTime = {
   progressPercentage: 1,
 };
 
-/* Timer - Toggle Timer Type */
+/* Timer - Slider/Toggle Timer Type */
 const timerOptions = document.querySelectorAll('input[name="timer-option"]');
 
 for (let i = 0; i < timerOptions.length; i++) {
   timerOptions[i].addEventListener('change', handleTimerOption);
-}
-
-/* Set Interval, Update Timer & Status */
-let interval;
-
-function updateTimerOption(option) {
-  timer.currentTimer = option;
-  updateRemainingTime();
 }
 
 function handleTimerOption(e) {
@@ -46,6 +36,17 @@ function handleTimerOption(e) {
     timerOption.checked = timerOption.value === timer.currentTimer;
   }
 }
+
+
+/* Set Interval, Update Timer & Status */
+let interval;
+
+function updateTimerOption(option) {
+  timer.currentTimer = option;
+  updateRemainingTime();
+}
+
+
 function updateRemainingTime() {
   remainingTime = {
     timerLength: timer.settings[timer.currentTimer] * 60,
