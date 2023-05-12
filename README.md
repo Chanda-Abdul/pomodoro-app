@@ -15,7 +15,6 @@ You can use any tools you like to help you complete the challenge. So if you've 
 Your users should be able to:
 - [ ] View the optimal layout for the interface depending on their device's screen size
   - [x] Mobile-first, for viewports <b>< 600px</b>
-  <!-- TO-DO => review mobile styles -->
   - [ ] Tablet(Portrait and Landscape), for viewports from <b>600px</b> to <b>1200px</b> <!-- TO-DO => review tablet styles -->
   - [ ] Desktop for viewports <b>< 1200px</b><!-- TO-DO => review desktop styles -->
 - [x] Set a pomodoro timer and short & long break timers
@@ -58,39 +57,20 @@ Your users should be able to:
 
 ### What I learned
 - I  incorporated  a Sass theme [`/styles/sass/themes/_themes.scss`](/styles/sass/themes/_themes.scss) to update the font and accent color settings.
-- I implemented a `<form>` `<input>` radio button on the main page to allow users to select the desired time type on the slider/toggle. I did something similar for custom color and font settings within the modal. This would make  default radio button styles hidden, while keeping radio functionality. An `input` could be selected at and updated in JavaScript.
+- I implemented a `<form>` `<input>` radio button on the main page to allow users to select the desired time type on the slider/toggle. I did something similar for custom color and font settings within the modal. This would make  default radio button styles hidden, while keeping radio functionality. An `input` could be selected and updated in JavaScript.
   - This is what it looks like in the HTML
     ```html
        <form class="slider">
         <fieldset class="slider__container">
-          <legend></legend>
-          <input type="radio"
-                 class="slider__input accent"
-                 name="timer-option"
-                 value="pomodoro"
-                 id="pomodoro-option"
-                 checked>
-          <label for="pomodoro-option"
-                 class="slider__label">pomodoro</label>
-
+          ...
           <input type="radio"
                  class="slider__input"
                  name="timer-option"
                  value="shortBreak"
                  id="short-break-option">
-
           <label for="short-break-option"
                  class="slider__label">short break</label>
-
-          <input type="radio"
-                 class="slider__input"
-                 name="timer-option"
-                 value="longBreak"
-                 id="long-break-option">
-
-          <label for="long-break-option"
-                 class="slider__label">long break</label>
-          <div class="slider__indicator"></div>
+          ...
         </fieldset>
       </form>
       ```
@@ -98,30 +78,27 @@ Your users should be able to:
       ```css
       .slider {
         ...
-          &__container {
-            ...
-            &__input[type="radio"] {
-              /* Hide default radio button */
-              &:not(:checked),
-              &:checked {
-                display: none;
-              }
-            }
-
-            ...
-
-          &__input[type="radio"]:checked+&__label {
-            ...
+        &__input[type="radio"] {
+          /* Hide default radio button */
+          &:not(:checked),
+          &:checked {
+            display: none;
           }
-          &__input[type="radio"]:not(:checked)+&__label {
-            ...
-            }           
+        }
+
+        ...
+
+      &__input[type="radio"]:checked+&__label {
+        ...
+      }
+      &__input[type="radio"]:not(:checked)+&__label {
+        ...
+      }           
             
       
       ```
   - and this is what it looks like in JavaScript
   ```ts
-    /* Timer - Slider/Toggle Timer Type */
     const timerOptions = document.querySelectorAll('input[name="timer-option"]');
 
     for (let i = 0; i < timerOptions.length; i++) {
@@ -139,10 +116,10 @@ Your users should be able to:
 
 - Creating the circle progress indicator was quite a challenge. I had to do a lot of math to figure out the right radius and diameter values in JavaScript, and then update the CSS every second during the countdown to make sure the indicator looked and behaved correctly as the time ticked away. 
 
-- I also incorporated some user interface (UI) and user experience (UX) elements,  
-  - I added an 🍅  icon that serves as a visual indicator, allowing users to easily track the number of remaining pomodoros they need to complete. This enhances the user experience by providing a quick and visual reference of their progress towards their goals. 
+- I also incorporated some UI/UX elements,  
+  - I added an 🍅 icon that serves as a visual indicator, allowing users to easily track the number of remaining pomodoros they need to complete. This enhances the user experience by providing a quick and visual reference of their progress towards their goals. 
   <!-- - such as an info box, to provide users with a clear understanding of the app's purpose.This addition ensures that users can easily grasp the functionality and benefits of the application.and an instructions section in the modal, so that the user can understand why they could select the timer settings. and a more information hover if they would like to know more -->
-- To efficiently manage and track the timer data, I utilized an object data structure. Using objects ensures the smooth handling and organization of the information throughout. The data remains organized, allowing for easy retrieval and manipulation as needed.
+- To efficiently manage and track the timer data, I utilized an object data structure. Using objects ensure smooth handling and organization of the information throughout. The data remains organized, allowing for easy retrieval and manipulation as needed.
     ```ts
     const timer = {
       settings: {

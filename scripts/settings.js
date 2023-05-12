@@ -17,23 +17,41 @@ function getSettings() {
   timer.settings.shortBreak = +shortBreakLength.value;
   timer.settings.longBreak = +longBreakLength.value;
 
-  /* Set Font */
-  for (const font of fontOptions) {
-    if (font.checked) {
-      selectedFont = font.value;
-    }
-  }
-
-  /* Set Accent Color */
-  for (const color of colorOptions) {
-    if (color.checked) {
-      selectedColor = color.value;
-    }
-  }
   updateRemainingTime();
   updateTimerUI();
 }
 
+fontOptions.forEach((font) => {
+  /* Set Font */
+  font.addEventListener('change', (e) => {
+    selectedFont = e.target.value;
+    updateFont();
+  });
+});
+
+function updateFont() {
+  fontOptions.forEach((font) => {
+    selectedFont === font.value
+      ? (font.checked = true)
+      : (font.checked = false);
+  });
+}
+
+colorOptions.forEach((color) => {
+  /* Set Accent Color */
+  color.addEventListener('change', (e) => {
+    selectedColor = e.target.value;
+    updateAccentColor();
+  });
+});
+
+function updateAccentColor() {
+  colorOptions.forEach((color) => {
+    selectedColor === color.value
+      ? (color.checked = true)
+      : (color.checked = false);
+  });
+}
 let selectedFont = 'theme-sans';
 let selectedColor = 'theme-peach';
 
@@ -46,45 +64,25 @@ const setInitialStyles = () => {
   body.className = '';
   body.classList.add(selectedFont);
   body.classList.add(selectedColor);
+  updateFont();
+  updateAccentColor();
 };
 
-/* Open Settings */
-function openSettings() {
-  modal.classList.remove('hidden');
+openSettingsBtn.addEventListener('click', () => {
+  modal.classList.add('show');
+});
 
-  for (const font of fontOptions) {
-    // TO-DO => add event listener
-    const fontButton = document.getElementById(font.id);
-    if (font.value === selectedFont) {
-      fontButton.classList.add('active-font');
-    } else {
-      fontButton.classList.remove('active-font');
-    }
-  }
-
-  for (const color of colorOptions) {
-        // TO-DO => add event listener
-    const colorButton = document.getElementById(color.id);
-    if (color.value === selectedColor) {
-      colorButton.classList.add('active-color');
-    } else {
-      colorButton.classList.remove('active-color');
-    }
-  }
-}
-
-openSettingsBtn.addEventListener('click', openSettings);
-
-/* Close Settings */
 const closeSettings = () => {
-  modal.classList.add('hidden');
+  modal.classList.remove('show');
 };
 
 closeSettingsBtn.addEventListener('click', closeSettings);
 
-/* close modal when the Esc key is pressed */
 document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+  /* close modal when the Esc key is pressed */ if (
+    e.key === 'Escape' &&
+    modal.classList.contains('show')
+  ) {
     closeSettings();
   }
 });

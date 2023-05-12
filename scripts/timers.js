@@ -1,10 +1,11 @@
-/* Timer Data */
 const timer = {
+  /* Timer Data */
   settings: {
     pomodoro: 25,
     shortBreak: 5,
     longBreak: 30,
     pomodorosRemainingUntilLongBreak: 4,
+    numberOfPomodoros: 4,
   },
   currentTimer: 'pomodoro' || 'shortBreak' || 'longBreak',
 
@@ -25,27 +26,27 @@ let remainingTime = {
 /* Timer - Slider/Toggle Timer Type */
 const timerOptions = document.querySelectorAll('input[name="timer-option"]');
 
-for (let i = 0; i < timerOptions.length; i++) {
-  timerOptions[i].addEventListener('change', handleTimerOption);
-}
+timerOptions.forEach((timer) => {
+  timer.addEventListener('change', handleTimerOption);
+});
 
 function handleTimerOption(e) {
-  updateTimerOption(e.target.value);
-
-  for (const timerOption of timerOptions) {
-    timerOption.checked = timerOption.value === timer.currentTimer;
-  }
+  timer.currentTimer = e.target.value;
+  updateTimerOption();
 }
 
+function updateTimerOption() {
+  timerOptions.forEach((timerOpt) => {
+    timer.currentTimer === timerOpt.value
+      ? (timerOpt.checked = true)
+      : (timerOpt.checked = false);
+  });
 
-/* Set Interval, Update Timer & Status */
-let interval;
-
-function updateTimerOption(option) {
-  timer.currentTimer = option;
   updateRemainingTime();
 }
 
+/* Set Interval, Update Timer & Status */
+let interval;
 
 function updateRemainingTime() {
   remainingTime = {
@@ -82,13 +83,28 @@ function startTimer() {
 }
 
 function resetTimer() {
-  timer.currentTimer === 'shortBreak'
-    ? (timer.currentTimer = 'longBreak')
-    : timer.currentTimer === 'pomodoro'
-    ? (timer.currentTimer = 'shortBreak')
-    : (timer.currentTimer = 'pomodoro');
-  // TO-DO => make sure toggle changes to next timer when time is up
-  updateTimerOption(timer.currentTimer);
+  const adjust = (decreaseOrReset) => {
+    if (decreaseOrReset === 'decrease') {
+      timer.settings.pomodorosRemainingUntilLongBreak--;
+      timer.currentTimer = 'shortBreak';
+    }
+    if (decreaseOrReset === 'reset') {
+      timer.settings.pomodorosRemainingUntilLongBreak =
+        timer.settings.numberOfPomodoros;
+      timer.currentTimer = 'longBreak';
+    }
+  };
+  let p = timer.settings.pomodorosRemainingUntilLongBreak;
+
+  if (timer.currentTimer === 'pomodoro') {
+    p > 0 ? adjust('decrease') : adjust('reset');
+  } else if (timer.currentTimer === 'shortBreak') {
+    timer.currentTimer = 'pomodoro';
+  } else {
+    timer.currentTimer = 'longBreak';
+  }
+  updateTimerOption();
+  startTimer();
 }
 
 function updateTimerStatus(current, next) {
@@ -111,15 +127,14 @@ function startAndUpdate() {
   updateTimerUI();
 }
 
-/* Set Initial Timer Status  */
 document.addEventListener('DOMContentLoaded', () => {
+  /* Set Initial Timer Status  */
   updateTimerOption('pomodoro');
   timerOptions.forEach((option) =>
     option.addEventListener('change', handleTimerOption)
   );
 });
 
-/* Timer Status */
 let timerStatus = document.querySelector('.timer__current-status');
 
 function updateStatus() {
@@ -137,7 +152,7 @@ timerStatus.addEventListener('change', updateStatus);
 function updateTimerUI() {
   /* Set Visual */
   let visual = document.getElementById('visual');
-  let pomsRemaining = '🍅 '.repeat(
+  let pomsRemaining = '<span>🍅</span>'.repeat(
     timer.settings.pomodorosRemainingUntilLongBreak
   );
   visual.innerHTML = pomsRemaining;
@@ -155,7 +170,7 @@ function updateTimerUI() {
 const circle = document.querySelector('circle');
 
 const radius = circle.r.baseVal.value;
-console.log(radius, circle);
+
 const circumference = radius * 2 * Math.PI;
 circle.style.strokeDasharray = `${
   circumference * (1 + 0.99)
@@ -167,5 +182,3 @@ function setProgress() {
     circumference * (1 + remainingTime.progressPercentage)
   }  ${circumference}`;
 }
-
-

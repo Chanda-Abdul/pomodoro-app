@@ -18,6 +18,7 @@
   }
 
   &__input[type="radio"] {
+
     /* Hide default radio button */
     &:not(:checked),
     &:checked {
@@ -32,7 +33,7 @@
     @include flex(row, center, center);
     transition: color 200ms ease-out;
     z-index: 4;
-    @include body-text-primary;
+    @include body-text-primary-mobile;
     font-weight: $font-weight-display;
   }
 
@@ -73,5 +74,16 @@
     top: 1rem;
     left: 0;
     border-radius: $border-radius-default;
+  }
+
+  @include responsive-for(tablet) {
+    width: 37.3rem;
+    margin-bottom: 5.5rem;
+
+    &__label {
+      width: 12rem;
+      @include body-text-primary;
+      font-weight: $font-weight-display;
+    }
   }
 }

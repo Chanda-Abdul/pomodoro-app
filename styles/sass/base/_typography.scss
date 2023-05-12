@@ -7,19 +7,25 @@ body {
 }
 
 @mixin logo-display-text {
-  font-size: 2.4rem;
+  font-size: 3.2rem;
   font-weight: $font-weight-display;
-  line-height: 3rem;
+  line-height: 4rem;
   letter-spacing: 0;
   text-align: center;
+}
+
+@mixin logo-display-text-mobile {
+  @include logo-display-text;
+  font-size: 2.4rem;
+  line-height: 3rem;
 }
 
 @mixin heading-extra-large {
   font-size: 10rem;
   font-weight: $font-weight-display;
-  line-height: 12rem;
+  line-height: 12.4rem;
   letter-spacing: -.5rem;
-  text-align: left;
+  text-align: center;
 }
 
 @mixin heading-extra-large-mobile {
@@ -27,7 +33,7 @@ body {
   font-size: 8rem;
   line-height: 9.9rem;
   letter-spacing: -.4rem;
-  text-align: center;
+
 }
 
 @mixin heading-large {
@@ -87,8 +93,14 @@ body {
 }
 
 @mixin body-text-primary {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: $font-weight-body;
+  line-height: 1.7rem;
+}
+
+@mixin body-text-primary-mobile {
+  @include body-text-primary;
+  font-size: 1.2rem;
   line-height: 1.4rem;
 }
 

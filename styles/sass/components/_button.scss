@@ -1,45 +1,77 @@
 button,
- .btn {
-     background-color: $georgia-peach;
-     color: $baby-powder;
-     font-size: 1.6rem;
-     line-height: 2rem;
-     font-weight: $font-weight-display;
-     text-align: center;
-     padding: 1.8rem 2.3rem;
-     border-radius: 2.65rem;
-     border: none;
- }
+.btn {
+    background-color: $georgia-peach;
+    color: $baby-powder;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    font-weight: $font-weight-display;
+    text-align: center;
+    padding: 1.8rem 2.3rem;
+    border-radius: 2.65rem;
+    border: none;
+}
 
- button.btn-option:hover {
-     cursor: pointer;
-     opacity: 0.8;
- }
+button.btn-option:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
 
- .btn-settings,
- .btn-status {
-     margin-bottom: 4.8rem;
-     padding: 0;
-     background-color: transparent;
-     border: none;
- }
+.btn-settings,
+.btn-status {
+    margin-bottom: 4.8rem;
+    padding: 0;
+    background-color: transparent;
+    border: none;
 
- .btn-close {
-     height: 2rem;
-     width: 2rem;
-     background-color: transparent;
-     align-items: center;
-     padding: 0;
- }
+}
 
- .btn-apply {
-     position: absolute;
-     z-index: 1;
-     height: 5.3rem;
-     width: 14rem;
-     border-radius: 2.65rem;
-     bottom: calc(-5.3rem / 2);
-     margin: auto;
-     left: calc(32.7rem/2 - 7rem);
-     text-decoration: none;
- }
+
+.btn-close {
+    height: 2rem;
+    width: 2rem;
+    background-color: transparent;
+    align-items: center;
+    padding: 0;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        width: 1.6rem;
+        height: .2rem;
+        background-color: #979797;
+        left: 0;
+        transition: all .2s;
+    }
+
+    &:before {
+        transform: rotate(135deg);
+    }
+
+    &:after {
+        transform: rotate(-135deg);
+    }
+}
+
+.btn-apply {
+    position: absolute;
+    z-index: 1;
+    height: 5.3rem;
+    width: 14rem;
+    border-radius: 2.65rem;
+    bottom: calc(-5.3rem / 2);
+    margin: auto;
+    left: calc(32.7rem/2 - 7rem);
+    text-decoration: none;
+    transition: all .5s;
+
+    &:hover {
+        transform: scale(1.1);
+
+    }
+}
+
+@include responsive-for(tablet) {.btn-apply {
+    left: calc(54rem/2 - 7rem);
+}}

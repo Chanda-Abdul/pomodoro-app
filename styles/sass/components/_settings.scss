@@ -1,28 +1,13 @@
 .settings {
-  // transition: all .5s .2s;
-
   &__modal {
     width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 12;
     background: rgba(10, 12, 28, 0.5);
     @include flex(row, center, center);
-    opacity: 1;
-
-    &::after {
-      content: '';
-      z-index: 7;
-    }
-
-    &.hidden {
-      opacity: 0;
-      z-index: -1;
-    }
   }
-
 
   &__card {
     min-height: 54.9rem;
@@ -31,8 +16,8 @@
     border-radius: $border-radius-card;
     color: $dark-knight;
     padding-bottom: 3.6rem;
-    transition: all .5s;
     position: relative;
+    z-index: 13;
 
     &--title {
       @include flex(row, space-between, center);
@@ -43,6 +28,22 @@
         @include heading-medium-mobile;
       }
     }
+
+    &--content {
+      width: 100%;
+      padding: $padding-default-mobile;
+
+      p {
+        @include body-text-secondary;
+      }
+
+      >section:not(:last-child) {
+        padding-bottom: $padding-default-mobile;
+        border-bottom: 1px solid $distant-horizon;
+      }
+    }
+
+
 
     &--section {
       width: 100%;
@@ -63,7 +64,6 @@
         font-weight: $font-weight-display;
         text-align: left;
         color: hsla(234, 35%, 18%, 0.4);
-        // margin: .4rem 0;
 
         & select {
           @include body-text-primary;
@@ -76,23 +76,12 @@
           border: none;
           background-color: $distant-horizon;
           padding: 1.5rem;
+          // TO-DO => style inputs
         }
       }
     }
 
-    &--content {
-      width: 100%;
-      padding: $padding-default-mobile;
 
-      p {
-        @include body-text-secondary;
-      }
-
-      >section:not(:last-child) {
-        padding-bottom: $padding-default-mobile;
-        border-bottom: 1px solid $distant-horizon;
-      }
-    }
 
 
   }
@@ -116,32 +105,6 @@
         letter-spacing: 0;
         @include flex(row, center, center);
 
-        &.font-sans {
-          font-family: $font-family-kumbh-sans;
-        }
-
-        &.font-roboto {
-          font-family: $font-family-roboto-slab;
-          font-weight: $font-weight-body;
-        }
-
-        &.font-space {
-          font-family: $font-family-space-mono;
-          font-weight: $font-weight-body;
-        }
-
-        &.color-peach {
-          background-color: $georgia-peach;
-        }
-
-        &.color-aqua {
-          background-color: $robins-egg-blue;
-        }
-
-        &.color-orchid {
-          background-color: $electric-orchid;
-        }
-
         &:not(:last-child) {
           margin-right: 1.6rem;
         }
@@ -153,15 +116,55 @@
         width: 0;
         appearance: none;
         -webkit-appearance: none;
+      }
+    }
 
-        &.active-font+label {
+    &--font {
+      input[type="radio"] {
+        +label {
+          &.font-sans {
+            font-family: $font-family-kumbh-sans;
+          }
+
+          &.font-roboto {
+            font-family: $font-family-roboto-slab;
+            font-weight: $font-weight-body;
+          }
+
+          &.font-space {
+            font-family: $font-family-space-mono;
+            font-weight: $font-weight-body;
+          }
+        }
+
+        &:checked+label {
           background-color: $dark-knight;
           color: $baby-powder;
           opacity: 1;
         }
+      }
+    }
 
-        &.active-color+label {
+    &--color {
+      input[type="radio"] {
+        +label {
           opacity: 1;
+
+          &.color-peach {
+            background-color: $georgia-peach;
+          }
+
+          &.color-aqua {
+            background-color: $robins-egg-blue;
+          }
+
+          &.color-orchid {
+            background-color: $electric-orchid;
+          }
+        }
+
+        &:checked+label {
+
           position: relative;
 
           &:after {
@@ -171,9 +174,56 @@
           }
         }
       }
+
     }
   }
+
+  @include responsive-for(tablet) {
+    &__card {
+      min-height: 49rem;
+      width: 54rem;
+
+      &--content {
+        padding-left: $padding-default-tablet ;
+        padding-right: $padding-default-tablet ;
+
+        p {
+          // @include body-text-secondary;
+        }
+
+        section {
+          padding-bottom: 0 !important;
+
+        }
+      }
+
+      &--section {
+
+        // @include flex(row, center, center);
+        &-title {
+          margin: 3.8rem;
+        }
+      }
+
+      form label {
+        @include flex(column, space-between, flex-start);
+        // height: 7rem;
+        // width: 14rem;
+        select{
+         margin-top: 1rem;
+        //  padding: 1.6rem;
+        }
+      
+        }
+    }
+
+    &__form {
+      @include flex(row, space-between, center);
+    }
+
+    &__section {
+      @include flex(row, space-between, center);
+    }
+
+  }
 }
-
-
-// &--instructions {}

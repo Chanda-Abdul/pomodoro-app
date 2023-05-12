@@ -24,6 +24,11 @@
       circle {
         position: absolute;
         z-index: 9;
+        // stroke-width: 1rem;
+        // fill: transparent;
+        // cx: 15rem;
+        // cy: 15rem;
+        // r: 11.9rem;
         transition: 0.35s stroke-dashoffset;
         /* axis compensation */
         transform: rotate(-90deg);
@@ -58,8 +63,58 @@
   &__current-status {
     @include heading-small-mobile;
   }
+
+  @include responsive-for(tablet) {
+    margin-top: 5.5rem;
+
+    &__ring,
+    &__ring--progress {
+      width: $circle-width-tablet;
+      height: $circle-width-tablet;
+    }
+
+    &__ring--progress {}
+
+    // 
+    circle {
+      // top: -13.55rem;
+      // left:3.55rem;
+      stroke-width: 1.35rem;
+      cx: 170;
+      cy: 170;
+      r: 16.9rem;
+      transform-origin: 50% 42%;
+
+      //   stroke-dasharray: 1995,940 !important;
+      // stroke-dashoffset: 940 !important;
+      &__ring--progress-circle {}
+    }
+
+    &__details {
+      height: 37.1rem;
+      width: 37.1rem;
+      top: $circle-padding-tablet;
+      left: $circle-padding-tablet;
+
+      &--current-time {
+        @include heading-extra-large;
+      }
+
+      &--btn {
+        top: 24.6rem;
+      }
+    }
+  }
 }
 
 .visual {
+  @include flex(row, space-around, center);
+  font-size: 1.6rem;
+  width: 11.8rem;
   z-index: 7;
+
+  @include responsive-for(tablet) {
+    font-size: 2.4rem;
+    width: 15.6rem;
+  }
 }
