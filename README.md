@@ -74,12 +74,11 @@ Your users should be able to:
         </fieldset>
       </form>
       ```
-      - This is what it looks like in the CSS
+  - This is what it looks like in the CSS
       ```css
       .slider {
         ...
         &__input[type="radio"] {
-          /* Hide default radio button */
           &:not(:checked),
           &:checked {
             display: none;
@@ -101,16 +100,23 @@ Your users should be able to:
   ```ts
     const timerOptions = document.querySelectorAll('input[name="timer-option"]');
 
-    for (let i = 0; i < timerOptions.length; i++) {
-      timerOptions[i].addEventListener('change', handleTimerOption);
-    }
+    timerOptions.forEach((timer) => {
+      timer.addEventListener('change', handleTimerOption);
+    });
 
     function handleTimerOption(e) {
-      updateTimerOption(e.target.value);
+      timer.currentTimer = e.target.value;
+      updateTimerOption();
+    }
 
-      for (const timerOption of timerOptions) {
-        timerOption.checked = timerOption.value === timer.currentTimer;
-      }
+    function updateTimerOption() {
+      timerOptions.forEach((timerOpt) => {
+        timer.currentTimer === timerOpt.value
+          ? (timerOpt.checked = true)
+          : (timerOpt.checked = false);
+      });
+
+      updateRemainingTime();
     }
   ```
 
@@ -118,7 +124,8 @@ Your users should be able to:
 
 - I also incorporated some UI/UX elements,  
   - I added an 🍅 icon that serves as a visual indicator, allowing users to easily track the number of remaining pomodoros they need to complete. This enhances the user experience by providing a quick and visual reference of their progress towards their goals. 
-  <!-- - such as an info box, to provide users with a clear understanding of the app's purpose.This addition ensures that users can easily grasp the functionality and benefits of the application.and an instructions section in the modal, so that the user can understand why they could select the timer settings. and a more information hover if they would like to know more -->
+  - An info box, to provide users with a clear understanding of the app's purpose.  This ensures that users can easily grasp the functionality and benefits of the application. and a more information hover if they would like to know more
+  - An instructions section in the modal, so that the user can understand why they could select the timer settings. 
 - To efficiently manage and track the timer data, I utilized an object data structure. Using objects ensure smooth handling and organization of the information throughout. The data remains organized, allowing for easy retrieval and manipulation as needed.
     ```ts
     const timer = {
@@ -127,6 +134,7 @@ Your users should be able to:
         shortBreak: 5,
         longBreak: 30,
         pomodorosRemainingUntilLongBreak: 4,
+        numberOfPomodoros: 4,
       },
       currentTimer: 'pomodoro' || 'shortBreak' || 'longBreak',
 

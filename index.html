@@ -16,6 +16,8 @@
 </head>
 
 <body id="body">
+  <a href="#main"
+     class="skip-to-main-content-link">Skip to main content</a>
   <header class="header">
     <h1 class="header__logo">pomodoro</h1>
   </header>
@@ -54,7 +56,8 @@
 
       <!-- Timer select  -->
       <form class="slider">
-        <fieldset class="slider__container">
+        <fieldset role=group
+                  class="slider__container">
           <legend></legend>
           <input type="radio"
                  class="slider__input accent"
@@ -97,7 +100,7 @@
                width="30rem"
                height="30rem"
                stroke-linecap="round">
-               <!-- TO-DO => update for tablet and desktop -->
+            <!-- TO-DO => update for tablet and desktop -->
             <circle class="timer__ring--progress-circle accent"
                     stroke=""
                     stroke-width="10"
@@ -132,7 +135,7 @@
         <div class="settings__card">
           <div class="settings__card--title">
             <h2>Settings</h2>
-            <button class="btn btn-close">
+            <button class="btn btn-close">&nbsp;
             </button>
 
           </div>
@@ -156,7 +159,7 @@
 
             <section class="settings__card--section">
 
-              <h4 class="settings__card--section-title">Time (minutes)</h4>
+              <h3 class="settings__card--section-title">Time (minutes)</h3>
               <form action=""
                     class="settings__form">
                 <label for="pomodoro"
@@ -167,7 +170,8 @@
                     <option value="1">1 session</option>
                     <option value="2">2 sessions</option>
                     <option value="3">3 sessions</option>
-                    <option value="4" selected="selected">4 sessions</option>
+                    <option value="4"
+                            selected="selected">4 sessions</option>
                     <option value="5">5 sessions</option>
                     <option value="6">6 sessions</option>
                   </select>
@@ -179,7 +183,8 @@
                           id="short-break"
                           class="settings__section--select-time">
                     <option value="5">5 minutes</option>
-                    <option value="10" selected="selected">10 minutes</option>
+                    <option value="10"
+                            selected="selected">10 minutes</option>
                     <option value="15">15 minutes</option>
                     <option value="20">20 minutes</option>
                   </select>
@@ -189,7 +194,8 @@
                   long break<select name="long-break"
                           id="long-break"
                           class="settings__section--select-time">
-                    <option value="30" selected="selected">30 minutes</option>
+                    <option value="30"
+                            selected="selected">30 minutes</option>
                     <option value="45">45 minutes</option>
                     <option value="60">60 minutes</option>
                   </select>
@@ -200,7 +206,7 @@
             <!-- <hr> -->
             <!-- TO-DO (Bonus) => Add Dark and light mode -->
             <!-- <section class="settings__section--scheme desktop-only">
-              <h4 class="settings__section--title">Theme (Light or Dark)</h4>
+              <h3 class="settings__section--title">Theme (Light or Dark)</h3>
               <div class="settings__section--options-font">
                 <button class="btn-option light"> <i class="ph ph-sun"></i></button>
                 <button class="btn-option dark"> <i class="ph ph-star-and-crescent"></i></button>
@@ -210,8 +216,10 @@
 
             <!-- Select Font -->
             <section class="settings__section">
-              <h4 class="settings__card--section-title">Font</h4>
-              <div class="settings__options--font">
+              <h3 class="settings__card--section-title">Font</h3>
+
+              <fieldset role=group
+                        class="settings__options--font">
                 <input type="radio"
                        id="font-sans"
                        value="theme-sans"
@@ -230,15 +238,15 @@
                        name="font-options">
                 <label class="options font-space"
                        for="font-space">Aa</label>
-
-              </div>
+              </fieldset>
             </section>
 
 
             <!-- Select Accent Color -->
             <section class="settings__section">
-              <h4 class="settings__card--section-title">Color</h4>
-              <div class="settings__options--color">
+              <h3 class="settings__card--section-title">Color</h3>
+              <fieldset role="group"
+                        class="settings__options--color">
                 <input type="radio"
                        id="color-peach"
                        value="theme-peach"
@@ -257,7 +265,7 @@
                        name="color-options">
                 <label class="options color-orchid"
                        for="color-orchid">&nbsp;</label>
-              </div>
+              </fieldset>
             </section>
           </div>
           <button class="btn btn-apply"
@@ -271,10 +279,11 @@
       Challenge by
       <a href='https://www.frontendmentor.io/'
          target='_blank'
-         rel='noreferrer'>
+         rel='frontend mentor link'>
         Frontend Mentor
       </a>
-      . Coded by <a href='https://www.ChandaAbdul.dev'> Chanda Abdul</a>.
+      . Coded by <a href='https://www.ChandaAbdul.dev'
+         rel='portfolio link'> Chanda Abdul</a>.
     </div>
   </footer>
 </body>
